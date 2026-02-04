@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Myth: Immersive Storybook Journey</title>
+  <meta name="description" content="Purple lives in stories. Read classic micro-tales, regional folklore and share your own purple myth."/>
+  <meta name="keywords" content="purple myths, amethyst legend, moon cloth, murasaki, Tyrian myths, purple folklore"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#7311d4",
+            "accent": "#d8b4fe",
+            "background-light": "#f7f6f8",
+            "background-dark": "#05010a",
+            "indigo-deep": "#1e1b4b",
+          },
+          fontFamily: {
+            "display": ["Space Grotesk", "sans-serif"],
+            "serif": ["Cormorant Garamond", "serif"],
+            "body": ["Space Grotesk", "sans-serif"]
+          },
+          backgroundImage: {
+            'aurora': 'radial-gradient(circle at 50% 50%, rgba(115, 17, 212, 0.15) 0%, transparent 50%)',
+            'noise': 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\' opacity=\'0.05\'/%3E%3C/svg%3E")'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .text-glow { text-shadow: 0 0 20px rgba(168,85,247,0.5), 0 0 40px rgba(115,17,212,0.3); }
+    .text-glow-sm { text-shadow: 0 0 10px rgba(168,85,247,0.4); }
+    .glass-panel {
+      background: rgba(19,11,27,0.4);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+    }
+    .lantern-glow { filter: drop-shadow(0 0 30px rgba(115,17,212,0.6)) drop-shadow(0 0 60px rgba(168,85,247,0.4)); }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .mask-gradient-b { mask-image: linear-gradient(to bottom, black 50%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%); }
+    .clip-crystal { clip-path: polygon(20% 0%, 80% 0%, 100% 50%, 80% 100%, 20% 100%, 0% 50%); }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0); } }
+  </style>
+</head>
+
+<body class="bg-background-dark text-white font-display overflow-x-hidden selection:bg-primary selection:text-white">
+  <div class="fixed inset-0 pointer-events-none z-0">
+    <div class="absolute inset-0 bg-noise mix-blend-overlay opacity-30"></div>
+    <div class="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] mix-blend-screen animate-pulse duration-[8s]"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-indigo-900/20 rounded-full blur-[100px] mix-blend-screen"></div>
+  </div>
+
+  <div class="relative z-10 flex flex-col min-h-screen">
+    <!-- Header -->
+<div class="w-full flex justify-center px-4 pt-6 fixed top-0 z-50">
+<header class="flex items-center justify-between w-full max-w-[960px] h-16 px-6 rounded-full border border-white/10 bg-[#130b1b]/60 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+<div class="flex items-center gap-3">
+<div class="size-8 flex items-center justify-center">
+  <img src="assets/logo.png" alt="Logo" class="h-8 w-8" />
+</div>
+<span class="text-white text-lg font-bold tracking-tight">Amethystiee</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" href="index.html">Home</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" href="discovery.html">Discovery</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" href="shade.html">Spectral</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" href="origin.html">Origins</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" href="me.html">Me</a>
+</nav>
+<button class="hidden md:flex items-center justify-center h-9 px-5 rounded-full bg-primary hover:bg-primary/90 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(115,17,212,0.4)] hover:shadow-[0_0_25px_rgba(115,17,212,0.6)] focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#130b1b]">
+                    ⋆˚꩜｡
+                </button>
+<button class="md:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+      </header>
+    </div>
+
+    <main class="flex-grow flex flex-col pt-24 pb-10">
+      <!-- Hero -->
+      <section class="relative min-h-[85vh] flex flex-col items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0">
+          <h1 class="font-serif text-[18vw] leading-none text-white/5 font-thin tracking-widest mix-blend-overlay blur-[2px]">TALES</h1>
+        </div>
+
+        <div class="relative z-10 w-64 h-64 md:w-96 md:h-96 animate-float cursor-pointer group" role="button" aria-label="Ignite Lantern" tabindex="0">
+          <div class="absolute inset-0 bg-primary/30 blur-[60px] rounded-full animate-pulse"></div>
+          <img alt="Glowing 3D Lantern" class="w-full h-full object-contain lantern-glow transition-transform duration-700 group-hover:scale-105"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2zg0tIi66N7jHKp1D-OqOHCOrgsvtf6t56RLdwRdw4oL_xiytaTqsAtecj3uMPXRuFnrErR7AZfsA-zzO4kuxI2luC5nG2rCw35LudHtai5B0CvR5q8ERWbvUur47NFlCc0oWLFRvkgPnFrPULplFAtT24zW6UCe1K7NgznaFvjoQlbAOWsxZwCoDIcJZ8Cauy8InntS0NBfMfukRs95zoBrbm42szVH4mvWAr_dz-aykgXtf4uo9-0KbBSjnFuh5yG0Q61TYwXw"
+               style="mask-image: radial-gradient(circle, black 60%, transparent 100%); -webkit-mask-image: radial-gradient(circle, black 60%, transparent 100%);"/>
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          </div>
+        </div>
+
+        <div class="relative z-20 mt-[-40px] text-center max-w-2xl px-6">
+          <p class="font-serif text-2xl md:text-3xl text-accent/90 italic mb-4">"Every shade holds a secret."</p>
+          <p class="text-white/60 text-sm md:text-base font-light tracking-wide max-w-lg mx-auto">
+            Scroll to unravel violet myths, from sea dyes to cosmic tales.
+          </p>
+          <div class="mt-8 animate-bounce text-white/30" aria-hidden="true">
+            <span class="material-symbols-outlined text-3xl">keyboard_arrow_down</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Page body -->
+      <div class="w-full max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 px-4 md:px-8 relative">
+        <!-- Sidebar (filters + audio) -->
+        <aside class="hidden lg:block lg:col-span-3 relative z-30" aria-label="Sidebar filters and audio">
+          <div class="sticky top-28 flex flex-col gap-8">
+
+            <div class="glass-panel rounded-2xl p-6 relative overflow-hidden" role="region" aria-labelledby="audio-title">
+              <div class="absolute top-0 right-0 p-4 opacity-20">
+                <span class="material-symbols-outlined text-6xl">graphic_eq</span>
+              </div>
+              <h3 id="audio-title" class="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-4 relative z-10">Audio Corner</h3>
+              <div class="flex flex-col gap-4 relative z-10">
+                <div class="flex items-center gap-3 group cursor-pointer" role="button" tabindex="0" aria-label="Play The Moon Cloth">
+                  <button class="size-8 rounded-full bg-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all play-audio" data-story="mooncloth">
+                    <span class="material-symbols-outlined text-sm">play_arrow</span>
+                  </button>
+                  <div class="flex flex-col">
+                    <span class="text-sm text-white/90 font-medium">The Moon Cloth</span>
+                    <span class="text-xs text-white/40">Narrated • 3:42</span>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-3 group cursor-pointer" role="button" tabindex="0" aria-label="Play Last Royal Purple">
+                  <button class="size-8 rounded-full bg-white/5 flex items-center justify-center text-white/60 group-hover:bg-primary/20 group-hover:text-primary transition-all play-audio" data-story="lastroyal">
+                    <span class="material-symbols-outlined text-sm">play_arrow</span>
+                  </button>
+                  <div class="flex flex-col">
+                    <span class="text-sm text-white/60 font-medium group-hover:text-white/80">Last Royal Purple</span>
+                    <span class="text-xs text-white/40">Narrated • 5:12</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </aside>
+
+        <!-- Main content column -->
+        <div class="col-span-1 lg:col-span-9 flex flex-col gap-24 relative pb-20">
+          <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/50 to-transparent z-0 hidden md:block"></div>
+
+          <!-- Classic Myths -->
+          <section id="classic-myths" class="relative w-full group" aria-label="Classic myths">
+            <!-- Moon Cloth -->
+            <article class="flex flex-col gap-6">
+              <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                <div class="w-full md:w-1/2 aspect-[4/5] rounded-2xl overflow-hidden relative border border-white/10" aria-hidden="true">
+                  <div class="absolute inset-0 bg-gradient-to-tr from-primary/40 to-transparent mix-blend-color z-10"></div>
+                  <div class="w-full h-full bg-[#1a1025] bg-[url('https://images.unsplash.com/photo-1614989799749-6c1e704dca56?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&amp;w=1000&amp;auto=format&amp;fit=crop')] bg-cover bg-fixed bg-center opacity-60 transition-transform duration-1000 group-hover:scale-110"></div>
+                  <div class="absolute bottom-4 left-4 z-20">
+                    <span class="px-3 py-1 rounded-full bg-black/50 backdrop-blur-md text-[10px] text-white/80 border border-white/10 uppercase tracking-widest">Ancient Japan</span>
+                  </div>
+                </div>
+
+                <div class="w-full md:w-1/2 flex flex-col gap-4 text-left relative z-10">
+                  <span class="text-primary font-bold text-sm tracking-widest uppercase mb-2">Myth 01</span>
+                  <h2 class="font-serif text-4xl md:text-5xl text-white leading-tight">The Moon Cloth</h2>
+                  <p class="text-white/60 text-lg font-light leading-relaxed">
+                    Ancient folklore tells of the Moon Cloth, a fabric not woven from silk, but from moonlight reflected on dark violet waters in Japan. Only the pure of heart could touch it without it fading into mist. The cloth rewarded patience, returning only to those who learned kindness. Legends say it vanished when greed appeared nearby.    
+                </p>
+                </div>
+              </div>
+            </article>
+
+            <!-- Last Royal Purple -->
+            <article class="flex flex-col gap-6">
+              <div class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16">
+                <div class="w-full md:w-1/2 aspect-[4/5] rounded-2xl overflow-hidden relative border border-white/10" aria-hidden="true">
+                  <div class="absolute inset-0 bg-gradient-to-bl from-indigo-500/30 to-transparent mix-blend-color z-10"></div>
+                  <div class="w-full h-full bg-[#1a1025] bg-[url('https://images.unsplash.com/photo-1638189330012-44e36a97312a?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&amp;w=1000&amp;auto=format&amp;fit=crop')] bg-cover bg-fixed bg-center opacity-60 transition-transform duration-1000 group-hover:scale-110"></div>
+                  <div class="absolute bottom-4 right-4 z-20">
+                    <span class="px-3 py-1 rounded-full bg-black/50 backdrop-blur-md text-[10px] text-white/80 border border-white/10 uppercase tracking-widest">Tyre, 1200 BC</span>
+                  </div>
+                </div>
+
+                <div class="w-full md:w-1/2 flex flex-col gap-4 text-left md:text-right relative z-10">
+                  <div class="flex md:justify-end"><span class="text-primary font-bold text-sm tracking-widest uppercase mb-2">Myth 02</span></div>
+                  <h2 class="font-serif text-4xl md:text-5xl text-white leading-tight">The Last Royal Purple</h2>
+                  <p class="text-white/60 text-lg font-light leading-relaxed">
+                   When murex snails disappeared, Tyrian purple was lost. Secret dyers used alchemy and rare minerals to recreate it, forming a dangerous shade that caused visions and strange dreams, warning that inventions can reshape the mind. </p>
+                </div>
+              </div>
+            </article>
+
+            <!-- Nebula's Heart -->
+            <article class="flex flex-col gap-6">
+              <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                <div class="w-full md:w-1/2 aspect-[4/5] rounded-2xl overflow-hidden relative border border-white/10" aria-hidden="true">
+                  <div class="absolute inset-0 bg-gradient-to-tr from-purple-500/30 to-transparent mix-blend-color z-10"></div>
+                  <div class="w-full h-full bg-[#1a1025] bg-[url('https://plus.unsplash.com/premium_photo-1733342672471-330d436a7c5c?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&amp;w=1000&amp;auto=format&amp;fit=crop')] bg-cover bg-fixed bg-center opacity-60 transition-transform duration-1000 group-hover:scale-110"></div>
+                  <div class="absolute bottom-4 left-4 z-20">
+                    <span class="px-3 py-1 rounded-full bg-black/50 backdrop-blur-md text-[10px] text-white/80 border border-white/10 uppercase tracking-widest">The Cosmos</span>
+                  </div>
+                </div>
+
+                <div class="w-full md:w-1/2 flex flex-col gap-4 text-left relative z-10">
+                  <span class="text-primary font-bold text-sm tracking-widest uppercase mb-2">Myth 03</span>
+                  <h2 class="font-serif text-4xl md:text-5xl text-white leading-tight">Nebula's Heart</h2>
+                  <p class="text-white/60 text-lg font-light leading-relaxed">
+Beyond telescopes lies the Violet Heart nebula, a glowing cloud said to pulse like a living heartbeat. Legends claim intuition was born there, reaching those who listen closely. Those who watched felt sudden clarity, reminding us that wonder teaches patience and awareness, and inner balance. 
+                </p>
+                </div>
+              </div>
+            </article>
+
+          </section>
+
+          <!-- Micro-tales grid -->
+          <section id="micro-tales" class="mt-12">
+            <h3 class="text-2xl font-serif text-white mb-6">Classic Micro-Tales</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div class="glass-panel rounded-[1.5rem] p-6">
+                <h4 class="font-bold text-white">The Lavender Messenger</h4>
+                <p class="text-white/60 mt-2">A messenger tied lavender sprigs to letters. Anyone who held the lavender while reading remembered the care in the message.</p>
+                <div class="mt-4 flex items-center gap-2">
+                  <button class="px-3 py-1 rounded bg-white/5 text-xs copy-story" data-story='{"title":"The Lavender Messenger","text":"A messenger tied lavender sprigs to letters. Anyone who held the lavender while reading remembered the care in the message."}'>Copy</button>
+                  <span class="text-white/40 text-xs">Gentle</span>
+                </div>
+              </div>
+
+              <div class="glass-panel rounded-[1.5rem] p-6">
+                <h4 class="font-bold text-white">Amethyst’s Promise</h4>
+                <p class="text-white/60 mt-2">A shepherd gave his sister a small purple stone to remember summer by. It became a family talisman of hope.</p>
+                <div class="mt-4 flex items-center gap-2">
+                  <button class="px-3 py-1 rounded bg-white/5 text-xs copy-story" data-story='{"title":"Amethyst’s Promise","text":"A shepherd gave his sister a small purple stone to remember summer by. It became a family talisman of hope."}'>Copy</button>
+                  <span class="text-white/40 text-xs">Gentle</span>
+                </div>
+              </div>
+
+              <div class="glass-panel rounded-[1.5rem] p-6">
+                <h4 class="font-bold text-white">The Violet Lantern</h4>
+                <p class="text-white/60 mt-2">A child’s violet lantern only lit the way to lost, kind things: a toy, a friend, a small truth.</p>
+                <div class="mt-4 flex items-center gap-2">
+                  <button class="px-3 py-1 rounded bg-white/5 text-xs copy-story" data-story='{"title":"The Violet Lantern","text":"A child’s violet lantern only lit the way to lost, kind things: a toy, a friend, a small truth."}'>Copy</button>
+                  <span class="text-white/40 text-xs">Strange</span>
+                </div>
+              </div>
+
+              <div class="glass-panel rounded-[1.5rem] p-6">
+                <h4 class="font-bold text-white">The Painter’s Secret</h4>
+                <p class="text-white/60 mt-2">A painter mixed a violet that never faded and painted it on the town clock so people would remember to pause.</p>
+                <div class="mt-4 flex items-center gap-2">
+                  <button class="px-3 py-1 rounded bg-white/5 text-xs copy-story" data-story='{"title":"The Painter’s Secret","text":"A painter mixed a violet that never faded and painted it on the town clock so people would remember to pause."}'>Copy</button>
+                  <span class="text-white/40 text-xs">Gentle</span>
+                </div>
+              </div>
+
+              <div class="glass-panel rounded-[1.5rem] p-6">
+                <h4 class="font-bold text-white">The Royal Thread</h4>
+                <p class="text-white/60 mt-2">A seamstress dyed the village banner purple and gave everyone courage. The banner kept the village together in hard times.</p>
+                <div class="mt-4 flex items-center gap-2">
+                  <button class="px-3 py-1 rounded bg-white/5 text-xs copy-story" data-story='{"title":"The Royal Thread","text":"A seamstress dyed the village banner purple and gave everyone courage. The banner kept the village together in hard times."}'>Copy</button>
+                  <span class="text-white/40 text-xs">Heroic</span>
+                </div>
+              </div>
+
+              <div class="glass-panel rounded-[1.5rem] p-6">
+                <h4 class="font-bold text-white">The Violet Well</h4>
+                <p class="text-white/60 mt-2">At dusk a well glowed violet. People drank from it when they needed the calm to speak honestly.</p>
+                <div class="mt-4 flex items-center gap-2">
+                  <button class="px-3 py-1 rounded bg-white/5 text-xs copy-story' data-story='{\"title\":\"The Violet Well\",\"text\":\"At dusk a well glowed violet. People drank from it when they needed the calm to speak honestly.\"}'>Copy</button>
+                  <span class="text-white/40 text-xs">Gentle</span>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- Community Tales -->
+          <section id="community-tales" class="mt-12">
+            <h3 class="text-2xl font-serif text-white mb-4">Community Tales</h3>
+            <p class="text-white/60 text-sm mb-6">Share a short purple story (50–200 words). Approved stories show here. Your name will be shown as you provide it.</p>
+
+            <div id="community-list" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- populated by JS -->
+            </div>
+
+            <div class="mt-8">
+              <button id="open-submission" class="px-6 py-3 rounded-full border border-primary text-white hover:bg-primary/20 transition-all" aria-haspopup="dialog">Write Your Own Micro-Tale</button>
+            </div>
+          </section>
+
+          <!-- Folklore by Region (carousel-like) -->
+          <section class="w-full mt-24 mb-16 overflow-hidden" aria-hidden="false">
+            <div class="max-w-[1200px] mx-auto px-6 mb-8 flex justify-between items-end">
+              <h2 class="text-3xl font-serif text-white">Folklore by Region</h2>
+              <div class="hidden md:flex gap-2">
+                <button class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors" aria-label="Previous slide"><span class="material-symbols-outlined">chevron_left</span></button>
+                <button class="size-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors" aria-label="Next slide"><span class="material-symbols-outlined">chevron_right</span></button>
+              </div>
+            </div>
+
+            <div class="flex overflow-x-auto gap-6 px-6 md:px-[calc((100vw-1200px)/2)] pb-10 no-scrollbar snap-x" role="list">
+              <!-- Card: Japan -->
+              <div class="snap-center shrink-0 w-[280px] md:w-[320px] h-[400px] glass-panel rounded-[2rem] p-6 flex flex-col justify-between group hover:border-primary/50 transition-all duration-300 relative overflow-hidden"
+                   role="listitem" tabindex="0"
+                   data-title="Murasaki — Japan"
+                   data-text="In ancient Japan, purple (murasaki) marked quiet depth. Poets and nobles wore it as a sign of refined feeling. A court lady painted a purple fan and used moonlight to speak without speaking. Murasaki became a code for longing, patience and inner beauty.">
+                <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <span class="material-symbols-outlined text-6xl">tsunami</span>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-bold text-primary uppercase tracking-widest">Japan</span>
+                  <h3 class="font-serif text-2xl text-white">Murasaki</h3>
+                </div>
+                <div class="space-y-4">
+                  <p class="text-sm text-white/50">A quiet color used for secret moods, poetry and refinement.</p>
+                  <div class="h-px w-full bg-white/10"></div>
+                  <div class="flex items-center gap-2 text-white/40 text-xs uppercase tracking-wider">
+                    <span class="material-symbols-outlined text-sm">auto_stories</span>
+                    Silence · Refinement · Hidden feelings
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card: Phoenicia -->
+              <div class="snap-center shrink-0 w-[280px] md:w-[320px] h-[400px] glass-panel rounded-[2rem] p-6 flex flex-col justify-between group hover:border-primary/50 transition-all duration-300 relative overflow-hidden"
+                   role="listitem" tabindex="0"
+                   data-title="Tyrian — Phoenicia"
+                   data-text="Along the Phoenician coast, purple was born from sea snails. Thousands were used to make a single dye drop. Folktales tell of sailors guarding jars like treasure and of a widow whose purple shawl made kings listen. Tyrian purple became the sea's visible voice of power and trade.">
+                <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <span class="material-symbols-outlined text-6xl">temple_hindu</span>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-bold text-primary uppercase tracking-widest">Phoenicia</span>
+                  <h3 class="font-serif text-2xl text-white">Tyrian</h3>
+                </div>
+                <div class="space-y-4">
+                  <p class="text-sm text-white/50">A dye born of the sea, once worth fortunes and stories.</p>
+                  <div class="h-px w-full bg-white/10"></div>
+                  <div class="flex items-center gap-2 text-white/40 text-xs uppercase tracking-wider">
+                    <span class="material-symbols-outlined text-sm">auto_stories</span>
+                    Ocean · Power · Truth
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card: Byzantium -->
+              <div class="snap-center shrink-0 w-[280px] md:w-[320px] h-[400px] glass-panel rounded-[2rem] p-6 flex flex-col justify-between group hover:border-primary/50 transition-all duration-300 relative overflow-hidden"
+                   role="listitem" tabindex="0"
+                   data-title="Imperial — Byzantium"
+                   data-text="In Byzantium the phrase 'born in the purple' meant children of power. Legends tell of porphyry rooms and servants who learned the names of future rulers. Purple came to mean privilege and the heavy silence of rulership.">
+                <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <span class="material-symbols-outlined text-6xl">account_balance</span>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-bold text-primary uppercase tracking-widest">Byzantium</span>
+                  <h3 class="font-serif text-2xl text-white">Imperial</h3>
+                </div>
+                <div class="space-y-4">
+                  <p class="text-sm text-white/50">Porphyry chambers and laws that kept purple for emperors.</p>
+                  <div class="h-px w-full bg-white/10"></div>
+                  <div class="flex items-center gap-2 text-white/40 text-xs uppercase tracking-wider">
+                    <span class="material-symbols-outlined text-sm">auto_stories</span>
+                    Fate · Responsibility · Power
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card: Botanical / Global -->
+              <div class="snap-center shrink-0 w-[280px] md:w-[320px] h-[400px] glass-panel rounded-[2rem] p-6 flex flex-col justify-between group hover:border-primary/50 transition-all duration-300 relative overflow-hidden"
+                   role="listitem" tabindex="0"
+                   data-title="Botanical — Global"
+                   data-text="Across gardens and meadows, violets and lavenders appear in small stories: a child who planted seeds and found a lost dog, a grandmother's ribbon to remember a promise. Botanicals tied purple to seasons, memory and small rituals.">
+                <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                  <span class="material-symbols-outlined text-6xl">forest</span>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-bold text-primary uppercase tracking-widest">Global</span>
+                  <h3 class="font-serif text-2xl text-white">Botanical</h3>
+                </div>
+                <div class="space-y-4">
+                  <p class="text-sm text-white/50">Flowers that mark seasons, love, and memory across lands.</p>
+                  <div class="h-px w-full bg-white/10"></div>
+                  <div class="flex items-center gap-2 text-white/40 text-xs uppercase tracking-wider">
+                    <span class="material-symbols-outlined text-sm">auto_stories</span>
+                    Seasons · Memory · Ritual
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- Region Story Modal -->
+    <div id="region-modal" class="fixed inset-0 z-60 hidden items-center justify-center p-6" role="dialog" aria-modal="true" aria-labelledby="region-modal-title">
+      <div id="region-modal-backdrop" class="absolute inset-0 bg-black/60"></div>
+      <div class="relative z-70 max-w-3xl w-full bg-[#0b0710] border border-white/10 rounded-2xl p-6 glass-panel">
+        <div class="flex justify-between items-start mb-4">
+          <div>
+            <h3 id="region-modal-title" class="text-xl font-serif text-white">Region Title</h3>
+            <p id="region-modal-sub" class="text-white/50 text-sm mt-1">Folklore & full story</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="region-copy" class="px-3 py-1 rounded bg-white/5 text-xs">Copy</button>
+            <button id="region-close" class="text-white/40 hover:text-white" aria-label="Close region story">✕</button>
+          </div>
+        </div>
+        <div id="region-modal-body" class="text-white/70 leading-relaxed" style="white-space:pre-line; max-height:60vh; overflow:auto;"></div>
+      </div>
+    </div>
+
+    <!-- Submission Modal -->
+    <div id="submission-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-6" role="dialog" aria-modal="true" aria-labelledby="submission-title">
+      <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="modal-backdrop"></div>
+      <div class="relative z-50 max-w-2xl w-full bg-[#0b0710] border border-white/10 rounded-2xl p-6 glass-panel">
+        <div class="flex justify-between items-start mb-4">
+          <div>
+            <h3 id="submission-title" class="text-xl font-serif text-white">Submit a Micro-Tale</h3>
+            <p class="text-white/60 text-sm">Keep it 50–200 words. Kind and original work only.</p>
+          </div>
+          <button id="close-submission" class="text-white/40 hover:text-white" aria-label="Close submission form">✕</button>
+        </div>
+
+        <form id="submission-form" class="flex flex-col gap-3" novalidate>
+          <label class="text-xs text-white/60">Your name</label>
+          <input id="sub-name" class="p-3 rounded bg-[#0f0814] border border-white/5 text-white" placeholder="Your name or Anonymous" aria-label="Your name" required/>
+
+          <label class="text-xs text-white/60">Title</label>
+          <input id="sub-title" class="p-3 rounded bg-[#0f0814] border border-white/5 text-white" placeholder="Short title (optional)" aria-label="Story title"/>
+
+          <label class="text-xs text-white/60">Story (50–200 words)</label>
+          <textarea id="sub-story" rows="6" class="p-3 rounded bg-[#0f0814] border border-white/5 text-white" placeholder="Write your micro-tale here..." aria-label="Your story" required></textarea>
+
+          <label class="text-xs text-white/60">Region (optional)</label>
+          <input id="sub-region" class="p-3 rounded bg-[#0f0814] border border-white/5 text-white" placeholder="e.g. Japan, Phoenicia, Home" aria-label="Region"/>
+
+          <label class="text-xs text-white/60 flex items-center gap-2"><input id="sub-consent" type="checkbox"/> I confirm this is my original short story and agree to publishing edits.</label>
+
+          <div class="flex gap-3 mt-4">
+            <button type="submit" class="px-4 py-2 rounded bg-primary text-white">Submit</button>
+            <button type="button" id="cancel-submission" class="px-4 py-2 rounded border border-white/10 text-white">Cancel</button>
+          </div>
+          <p class="text-xs text-white/40 mt-2">Moderation: No hate, sexual content, or personal data. We may edit for length and clarity.</p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="fixed right-6 bottom-6 z-60 hidden">
+      <div class="bg-black/70 text-white px-4 py-2 rounded shadow">Saved.</div>
+    </div>
+
+    <!-- Footer CTA -->
+    <footer class="w-full flex justify-center py-20 z-10 relative overflow-hidden" role="contentinfo">
+      <div class="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent pointer-events-none"></div>
+      <div class="relative group cursor-pointer">
+        <div class="absolute inset-0 bg-primary/30 blur-[40px] group-hover:bg-primary/50 transition-all duration-500"></div>
+        <div class="clip-crystal w-[300px] h-[340px] md:w-[400px] md:h-[450px] bg-[#1a0f26]/90 backdrop-blur-xl border border-white/10 flex flex-col items-center justify-center p-10 text-center relative z-10 transition-transform duration-500 group-hover:-translate-y-2">
+          <div class="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none"></div>
+          <span class="material-symbols-outlined text-4xl text-primary mb-6 animate-pulse">edit_note</span>
+          <h2 class="font-serif text-3xl md:text-4xl text-white mb-4">Write Your Own</h2>
+          <p class="text-white/50 text-sm mb-8 max-w-[200px]">Do you have a purple myth? Contribute to the living archive.</p>
+          <button id="open-submission-footer" class="px-8 py-3 rounded-full border border-primary text-white text-xs uppercase tracking-widest hover:bg-primary hover:text-white transition-all duration-300" aria-haspopup="dialog">
+            Open Scroll
+          </button>
+        </div>
+      </div>
+      <div class="absolute bottom-4 text-white/20 text-[10px] uppercase tracking-widest">© 2026 Amethystiee By Sanduni Basnayaka - Built with obsession for purple.</div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      /* ---------- Helpers ---------- */
+      const $ = id => document.getElementById(id);
+      function showToast(msg='Saved.', ms=1600){
+        const t = $('toast');
+        if(!t) return;
+        t.firstElementChild.textContent = msg;
+        t.classList.remove('hidden');
+        setTimeout(()=> t.classList.add('hidden'), ms);
+      }
+
+      /* ---------- Speech (Audio Corner) ---------- */
+      const storiesText = {
+        mooncloth: `The Moon Cloth. Deep in the archives of folklore lies the tale of a fabric woven not from silk, but from the reflection of the moon on dark violet waters. It was said that only those with a heart devoid of greed could touch the cloth without it dissolving into mist.`,
+        lastroyal: `The Last Royal Purple. When the murex snails vanished from the shores, a panic seized the empire. A secret society of dyers attempted to synthesize the hue using alchemy and rare minerals, creating a color so potent it was rumored to drive the wearer mad with visions of the future.`
+      };
+
+      function speak(text){
+        if(!('speechSynthesis' in window)) {
+          alert('Speech synthesis not supported.');
+          return;
+        }
+        window.speechSynthesis.cancel();
+        const ut = new SpeechSynthesisUtterance(text);
+        ut.rate = 1; ut.pitch = 1; ut.lang = 'en-US';
+        window.speechSynthesis.speak(ut);
+      }
+
+      document.querySelectorAll('.play-audio').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const key = btn.dataset.story;
+          if(storiesText[key]) speak(storiesText[key]);
+        });
+        btn.addEventListener('keydown', (e) => {
+          if(e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const key = btn.dataset.story;
+            if(storiesText[key]) speak(storiesText[key]);
+          }
+        });
+      });
+
+      /* ---------- Copy story buttons ---------- */
+      document.querySelectorAll('.copy-story').forEach(btn => {
+        btn.addEventListener('click', () => {
+          try {
+            const data = btn.dataset.story ? JSON.parse(btn.dataset.story) : null;
+            const text = data ? (data.title + "\n\n" + data.text) : (btn.getAttribute('data-fulltext') || '');
+            navigator.clipboard.writeText(text);
+            showToast('Story copied to clipboard');
+          } catch (e) {
+            showToast('Could not copy');
+          }
+        });
+      });
+
+      /* ---------- Submission modal logic ---------- */
+      const submissionModal = $('submission-modal');
+      const openBtns = [ $('open-submission'), $('open-submission-footer') ].filter(Boolean);
+      const subForm = $('submission-form');
+
+      function openSubmission(){
+        if(!submissionModal) return;
+        submissionModal.classList.remove('hidden');
+        submissionModal.style.display = 'flex';
+        const nameInput = $('sub-name');
+        if(nameInput) nameInput.focus();
+      }
+      function closeSubmission(){
+        if(!submissionModal) return;
+        submissionModal.classList.add('hidden');
+        submissionModal.style.display = 'none';
+        if(subForm) subForm.reset();
+      }
+      openBtns.forEach(b => b.addEventListener('click', openSubmission));
+      if($('open-submission')) $('open-submission').addEventListener('click', openSubmission);
+      if($('open-submission-footer')) $('open-submission-footer').addEventListener('click', openSubmission);
+      if($('close-submission')) $('close-submission').addEventListener('click', closeSubmission);
+      if($('cancel-submission')) $('cancel-submission').addEventListener('click', closeSubmission);
+      if($('modal-backdrop')) $('modal-backdrop').addEventListener('click', closeSubmission);
+
+      /* ---------- Community submissions (localStorage) ---------- */
+      const submissionsKey = 'amethystiee_myths_v1';
+
+      function loadSubmissions(){
+        try {
+          const raw = localStorage.getItem(submissionsKey);
+          return raw ? JSON.parse(raw) : [];
+        } catch (e) { return []; }
+      }
+      function saveSubmissions(list){
+        localStorage.setItem(submissionsKey, JSON.stringify(list));
+      }
+
+      function escapeHtml(s=''){ return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m]); }
+
+      function renderSubmissions(){
+        const list = loadSubmissions();
+        const container = $('community-list');
+        if(!container) return;
+        container.innerHTML = '';
+        if(!list.length){
+          container.innerHTML = '<div class="text-white/50">No community tales yet. Be the first to share!</div>';
+          return;
+        }
+        list.slice().reverse().forEach((item, idx) => {
+          const card = document.createElement('div');
+          card.className = 'glass-panel rounded-2xl p-6';
+          card.innerHTML = `
+            <div class="flex justify-between items-start gap-4">
+              <div>
+                <h4 class="font-bold text-white">${escapeHtml(item.title || 'Untitled')}</h4>
+                <div class="text-xs text-white/40">${escapeHtml(item.name || 'Anonymous')} · ${escapeHtml(item.region || '')}</div>
+              </div>
+              <div class="flex gap-2 items-center">
+                <button class="px-2 py-1 rounded bg-white/5 text-xs copy-submission" data-idx="${idx}">Copy</button>
+                <button class="px-2 py-1 rounded bg-white/5 text-xs like-submission" data-idx="${idx}">❤ <span class="likes">${item.likes||0}</span></button>
+              </div>
+            </div>
+            <p class="text-white/60 mt-4">${escapeHtml(item.text)}</p>
+          `;
+          container.appendChild(card);
+        });
+
+        // attach handlers
+        container.querySelectorAll('.copy-submission').forEach(b => {
+          b.addEventListener('click', () => {
+            const idx = parseInt(b.dataset.idx,10);
+            const list = loadSubmissions();
+            const item = list[list.length - 1 - idx];
+            if(item) {
+              navigator.clipboard.writeText((item.title?item.title + "\n\n":"") + item.text).then(() => showToast('Copied'));
+            }
+          });
+        });
+        container.querySelectorAll('.like-submission').forEach(b => {
+          b.addEventListener('click', () => {
+            const idx = parseInt(b.dataset.idx,10);
+            const list = loadSubmissions();
+            const realIdx = list.length - 1 - idx;
+            if(list[realIdx]) {
+              list[realIdx].likes = (list[realIdx].likes||0) + 1;
+              saveSubmissions(list);
+              renderSubmissions();
+            }
+          });
+        });
+      }
+
+      if(subForm){
+        subForm.addEventListener('submit', function(e){
+          e.preventDefault();
+          const name = $('sub-name').value.trim() || 'Anonymous';
+          const title = $('sub-title').value.trim() || '';
+          const text = $('sub-story').value.trim();
+          const region = $('sub-region').value.trim() || '';
+          const consent = $('sub-consent').checked;
+
+          if(!consent){
+            alert('Please confirm you own this story.');
+            return;
+          }
+          const words = text.split(/\s+/).filter(Boolean).length;
+          if(words < 5 || text.length < 50){
+            alert('Please write a little more — minimum 50 characters.');
+            return;
+          }
+          if(words > 300 || text.length > 1200){
+            alert('Please keep story concise (max 200 words).');
+            return;
+          }
+
+          const list = loadSubmissions();
+          list.push({ name, title, text, region, created: new Date().toISOString(), likes: 0 });
+          saveSubmissions(list);
+          renderSubmissions();
+          closeSubmission();
+          showToast('Story saved — thank you!');
+        });
+      }
+
+      renderSubmissions();
+
+      /* ---------- Simple filter buttons (visual) ---------- */
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.filter-btn').forEach(b => b.setAttribute('aria-pressed','false'));
+          btn.setAttribute('aria-pressed','true');
+          showToast('Filter set: ' + (btn.textContent||'All').trim(), 900);
+        });
+      });
+
+      /* ---------- Begin Journey ---------- */
+      const beginBtn = $('begin-journey');
+      if(beginBtn){
+        beginBtn.addEventListener('click', () => {
+          document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+
+      /* ---------- Region modal logic ---------- */
+      const regionModal = $('region-modal');
+      const regionBackdrop = $('region-modal-backdrop');
+      const regionTitleEl = $('region-modal-title');
+      const regionBodyEl = $('region-modal-body');
+      const regionCopyBtn = $('region-copy');
+      const regionCloseBtn = $('region-close');
+
+      function openRegionModal(title, text){
+        if(!regionModal) return;
+        regionTitleEl.textContent = title || 'Story';
+        regionBodyEl.textContent = text || '';
+        regionModal.classList.remove('hidden');
+        regionModal.style.display = 'flex';
+        regionCloseBtn && regionCloseBtn.focus();
+      }
+      function closeRegionModal(){
+        if(!regionModal) return;
+        regionModal.classList.add('hidden');
+        regionModal.style.display = 'none';
+      }
+
+      // attach open to region cards
+      document.querySelectorAll('[role="list"] [role="listitem"]').forEach(card => {
+        if(!card.dataset || !card.dataset.title) return;
+        card.addEventListener('click', () => {
+          const title = card.dataset.title || card.querySelector('h3')?.textContent || 'Story';
+          const text = card.dataset.text || card.querySelector('p')?.textContent || '';
+          openRegionModal(title, text);
+        });
+        card.addEventListener('keydown', (e) => {
+          if(e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const title = card.dataset.title || card.querySelector('h3')?.textContent || 'Story';
+            const text = card.dataset.text || card.querySelector('p')?.textContent || '';
+            openRegionModal(title, text);
+          }
+        });
+      });
+
+      regionCloseBtn && regionCloseBtn.addEventListener('click', closeRegionModal);
+      regionBackdrop && regionBackdrop.addEventListener('click', closeRegionModal);
+
+      regionCopyBtn && regionCopyBtn.addEventListener('click', () => {
+        const title = regionTitleEl.textContent;
+        const text = regionBodyEl.textContent;
+        navigator.clipboard.writeText(title + "\n\n" + text).then(() => {
+          regionCopyBtn.textContent = 'Copied';
+          setTimeout(()=> regionCopyBtn.textContent = 'Copy', 1200);
+        }).catch(()=> alert('Could not copy'));
+      });
+
+      /* ---------- Read full (buttons) ---------- */
+      document.querySelectorAll('.read-full').forEach(b => {
+        b.addEventListener('click', () => {
+          const t = b.dataset.title || 'Story';
+          const text = b.dataset.text || '';
+          openRegionModal(t, text);
+        });
+      });
+
+      /* ---------- Keyboard accessibility ---------- */
+      document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape'){
+          // close submission if open
+          if(submissionModal && !submissionModal.classList.contains('hidden')) closeSubmission();
+          if(regionModal && !regionModal.classList.contains('hidden')) closeRegionModal();
+        }
+      });
+
+      // ensure modals are hidden on load
+      if(regionModal) regionModal.classList.add('hidden');
+      if(submissionModal) submissionModal.classList.add('hidden');
+    });
+  </script>
+</body>
+</html>
