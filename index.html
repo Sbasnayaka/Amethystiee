@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Amethystiee Home: Aurora Glow Variant</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7311d4",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#0a0112", // Deep void purple/black
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                    backgroundImage: {
+                        'aurora': 'radial-gradient(circle at 50% 50%, rgba(115, 17, 212, 0.15) 0%, transparent 50%)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .text-glow {
+            text-shadow: 0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(115, 17, 212, 0.3);
+        }
+        .card-border-glow {
+            box-shadow: inset 0 0 20px rgba(115, 17, 212, 0.1);
+        }
+        .card-border-glow:hover {
+            box-shadow: inset 0 0 30px rgba(115, 17, 212, 0.2), 0 0 20px rgba(115, 17, 212, 0.3);
+        }::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0112; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #332545; 
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-white font-display overflow-x-hidden selection:bg-primary selection:text-white">
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] mix-blend-screen animate-pulse duration-[10s]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[700px] h-[700px] bg-teal-500/10 rounded-full blur-[130px] mix-blend-screen"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[100px]"></div>
+</div>
+<div class="relative z-10 flex flex-col min-h-screen">
+<div class="w-full flex justify-center px-4 pt-6 fixed top-0 z-50">
+<header class="flex items-center justify-between w-full max-w-[960px] h-16 px-6 rounded-full border border-white/10 bg-[#130b1b]/60 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+<div class="flex items-center gap-3">
+<div class="size-8 flex items-center justify-center">
+  <img src="assets/logo.png" alt="Logo" class="h-8 w-8" />
+</div>
+<span class="text-white text-lg font-bold tracking-tight">Amethystiee</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" href="#">Discovery</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" href="#">Spectral</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" href="#">Origins</a>
+</nav>
+<button class="hidden md:flex items-center justify-center h-9 px-5 rounded-full bg-primary hover:bg-primary/90 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(115,17,212,0.4)] hover:shadow-[0_0_25px_rgba(115,17,212,0.6)]">
+                    Enter Void
+                </button>
+<button class="md:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+</div>
+<main class="flex-grow flex flex-col items-center justify-center pt-28 pb-10 px-4 md:px-8">
+<div class="w-full max-w-[1200px] flex flex-col items-center gap-12">
+<div class="flex flex-col items-center text-center gap-6 mt-8 md:mt-16 w-full">
+<div class="relative">
+<h1 class="text-5xl md:text-7xl lg:text-9xl font-light tracking-[0.05em] text-white text-glow leading-none select-none">
+                            AMETHYSTIEE
+                        </h1>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-background-dark/20 pointer-events-none"></div>
+</div>
+<div class="flex flex-col items-center gap-3 max-w-2xl mx-auto">
+<p class="text-white/60 text-sm md:text-lg font-light tracking-wide leading-relaxed">
+                            Explore the spectrum of the violet universe. <br class="hidden md:block"/>Where science, myth, emotion, and imagination dissolve into purple.
+                        </p>
+<span class="text-[10px] md:text-xs font-bold tracking-[0.25em] text-white/40 uppercase mt-2 border-b border-white/5 pb-1">
+                            A LIVING ARCHIVE OF EVERYTHING PURPLE
+                        </span>
+</div>
+<div class="relative w-full max-w-lg aspect-square my-[-40px] md:my-[-60px] lg:my-[-80px] z-0 flex items-center justify-center pointer-events-none">
+<div class="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] animate-[pulse_6s_ease-in-out_infinite]">
+<img class="w-full h-full object-contain drop-shadow-[0_0_50px_rgba(115,17,212,0.3)] mask-image-gradient" data-alt="Glowing cluster of purple amethyst crystals floating in dark space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2zg0tIi66N7jHKp1D-OqOHCOrgsvtf6t56RLdwRdw4oL_xiytaTqsAtecj3uMPXRuFnrErR7AZfsA-zzO4kuxI2luC5nG2rCw35LudHtai5B0CvR5q8ERWbvUur47NFlCc0oWLFRvkgPnFrPULplFAtT24zW6UCe1K7NgznaFvjoQlbAOWsxZwCoDIcJZ8Cauy8InntS0NBfMfukRs95zoBrbm42szVH4mvWAr_dz-aykgXtf4uo9-0KbBSjnFuh5yG0Q61TYwXw" style="-webkit-mask-image: radial-gradient(circle, black 40%, transparent 70%); mask-image: radial-gradient(circle, black 40%, transparent 70%); opacity: 0.9;"/>
+</div>
+<div class="absolute inset-0 bg-primary/20 blur-[80px] rounded-full z-[-1]"></div>
+</div>
+<div class="z-10 mt-8">
+<button class="group relative flex items-center gap-3 px-8 py-4 rounded-full bg-white/5 border border-primary/40 backdrop-blur-md text-white overflow-hidden transition-all duration-300 hover:border-primary hover:bg-white/10 hover:shadow-[0_0_30px_rgba(115,17,212,0.4)]">
+<span class="text-sm md:text-base font-bold tracking-widest uppercase z-10">Start Exploration</span>
+<span class="material-symbols-outlined text-primary group-hover:text-white transition-colors z-10">arrow_forward</span>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
+</button>
+</div>
+</div>
+<div class="w-full max-w-[960px] grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 md:mt-20">
+<a class="group relative flex flex-col gap-4 p-6 rounded-[2rem] bg-[#1a1225]/40 backdrop-blur-md border border-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 card-border-glow" href="#">
+<div class="size-12 rounded-full bg-white/5 flex items-center justify-center text-primary group-hover:text-white group-hover:bg-primary transition-all duration-300 shadow-[0_0_15px_rgba(0,0,0,0.2)]">
+<span class="material-symbols-outlined">palette</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-white text-lg font-bold tracking-wide group-hover:text-primary transition-colors">Violet Spectrums</h3>
+<p class="text-white/50 text-sm leading-relaxed">Deep dive into every shade of purple — from soft lavender to cosmic ultraviolet, with color theory, meanings, and emotions.</p>
+</div>
+<div class="absolute bottom-4 right-6 opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-2 group-hover:translate-x-0">
+<span class="material-symbols-outlined text-primary/80">arrow_right_alt</span>
+</div>
+</a>
+<a class="group relative flex flex-col gap-4 p-6 rounded-[2rem] bg-[#1a1225]/40 backdrop-blur-md border border-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 card-border-glow" href="#">
+<div class="size-12 rounded-full bg-white/5 flex items-center justify-center text-primary group-hover:text-white group-hover:bg-primary transition-all duration-300 shadow-[0_0_15px_rgba(0,0,0,0.2)]">
+<span class="material-symbols-outlined">eco</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-white text-lg font-bold tracking-wide group-hover:text-primary transition-colors">Organic Growth</h3>
+<p class="text-white/50 text-sm leading-relaxed">Discover purple in nature — flowers, fruits, minerals, galaxies, animals, and rare phenomena shaped by evolution.</p>
+</div>
+<div class="absolute bottom-4 right-6 opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-2 group-hover:translate-x-0">
+<span class="material-symbols-outlined text-primary/80">arrow_right_alt</span>
+</div>
+</a>
+<a class="group relative flex flex-col gap-4 p-6 rounded-[2rem] bg-[#1a1225]/40 backdrop-blur-md border border-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 card-border-glow" href="#">
+<div class="size-12 rounded-full bg-white/5 flex items-center justify-center text-primary group-hover:text-white group-hover:bg-primary transition-all duration-300 shadow-[0_0_15px_rgba(0,0,0,0.2)]">
+<span class="material-symbols-outlined">stadia_controller</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-white text-lg font-bold tracking-wide group-hover:text-primary transition-colors">Synthwave Labs</h3>
+<p class="text-white/50 text-sm leading-relaxed">Play, explore, and interact with purple through visual experiments, mini-games, sound waves, and motion.</p>
+</div>
+<div class="absolute bottom-4 right-6 opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-2 group-hover:translate-x-0">
+<span class="material-symbols-outlined text-primary/80">arrow_right_alt</span>
+</div>
+</a>
+</div>
+<div class="w-full max-w-[800px] flex flex-col gap-24 mt-20 md:mt-32 mb-10 text-center">
+<div class="flex flex-col gap-6 items-center">
+<h2 class="text-3xl md:text-5xl font-light tracking-wide text-white text-glow">What is Amethystiee?</h2>
+<p class="text-white/70 text-base md:text-xl font-light leading-relaxed max-w-2xl">
+                             It is more than just a color. It is a mood, a frequency, a mystery wrapped in twilight. We curate the intangible feeling of violet and the tangible beauty of the rarest hue in existence. Amethystiee is where the digital soul meets the organic heart of the spectrum.
+                         </p>
+</div>
+<div class="flex flex-col gap-6 items-center relative">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[150%] bg-primary/5 blur-[50px] rounded-full pointer-events-none z-[-1]"></div>
+<h2 class="text-3xl md:text-5xl font-light tracking-wide text-white text-glow">Why Purple?</h2>
+<p class="text-white/70 text-base md:text-xl font-light leading-relaxed max-w-2xl">
+                             Living on the edge of the visible spectrum, purple occupies the sacred space between the calm stability of blue and the fierce energy of red. It is the color of magic, royalty, and the cosmos—a bridge between the known world and the infinite unknown.
+                         </p>
+</div>
+</div>
+</div>
+</main>
+<footer class="w-full flex justify-center py-8 z-10 border-t border-white/5 bg-[#0a0112]/80 backdrop-blur-sm">
+<div class="layout-content-container flex flex-col max-w-[960px] w-full px-8">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6">
+<p class="text-white/30 text-sm font-light">© 2026 Amethystiee By SKB — Built with obsession for purple.</p>
+<div class="flex gap-6">
+<a class="text-white/30 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">flutter_dash</span></a>
+<a class="text-white/30 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">alternate_email</span></a>
+<a class="text-white/30 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">public</span></a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>
