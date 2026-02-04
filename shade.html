@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Spectral: The Purple Shade Archive</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7311d4",
+                        "secondary": "#a855f7",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#0a0112",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                    backgroundImage: {
+                        'aurora': 'radial-gradient(circle at 50% 50%, rgba(115, 17, 212, 0.15) 0%, transparent 50%)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .text-glow {
+            text-shadow: 0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(115, 17, 212, 0.3);
+        }
+        .card-glass {
+            background: rgba(26, 18, 37, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: inset 0 0 20px rgba(115, 17, 212, 0.05);
+        }
+        .card-glass:hover {
+            box-shadow: inset 0 0 30px rgba(115, 17, 212, 0.15), 0 0 20px rgba(115, 17, 212, 0.2);
+            border-color: rgba(115, 17, 212, 0.3);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0112; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #332545; 
+            border-radius: 4px;
+        }
+        .code-snippet {
+            font-family: 'Space Grotesk', monospace;}
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-white font-display overflow-x-hidden selection:bg-primary selection:text-white">
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] mix-blend-screen animate-pulse duration-[10s]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[700px] h-[700px] bg-secondary/10 rounded-full blur-[130px] mix-blend-screen"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[100px]"></div>
+</div>
+<div class="relative z-10 flex flex-col min-h-screen">
+<div class="w-full flex justify-center px-4 pt-6 fixed top-0 z-50">
+<header class="flex items-center justify-between w-full max-w-[960px] h-16 px-6 rounded-full border border-white/10 bg-[#130b1b]/60 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+<div class="flex items-center gap-3">
+<div class="size-8 flex items-center justify-center">
+  <img src="assets/logo.png" alt="Logo" class="h-8 w-8" />
+</div>
+<span class="text-white text-lg font-bold tracking-tight">Amethystiee</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors" href="#">Discovery</a>
+<a class="text-sm font-bold text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] border-b-2 border-primary py-1" href="#">Spectral</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors" href="#">Origins</a>
+</nav>
+<button class="hidden md:flex items-center justify-center h-9 px-5 rounded-full bg-primary hover:bg-primary/90 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(115,17,212,0.4)] hover:shadow-[0_0_25px_rgba(115,17,212,0.6)]">
+                    Enter Void
+                </button>
+<button class="md:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+</div>
+<main class="flex-grow flex flex-col items-center pt-28 pb-10 px-4 md:px-8">
+<div class="w-full max-w-[1200px] flex flex-col items-center gap-12">
+<div class="flex flex-col items-center text-center gap-6 mt-8 w-full">
+<div class="relative">
+<h1 class="text-5xl md:text-7xl font-light tracking-[0.05em] text-white text-glow leading-none select-none">
+                            SPECTRAL SPECTRUMS
+                        </h1>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-background-dark/20 pointer-events-none"></div>
+</div>
+<div class="flex flex-col items-center gap-3 max-w-2xl mx-auto">
+<p class="text-white/60 text-lg font-light tracking-wide leading-relaxed">
+                            Find the purple that fits you. From soft lavender to deep royal, each shade tells a tiny story.
+                        </p>
+</div>
+</div>
+<div class="w-full max-w-3xl p-8 rounded-[2rem] bg-white/5 backdrop-blur-md border border-white/10 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-[50px] rounded-full"></div>
+<div class="flex flex-col md:flex-row gap-6 items-start md:items-center">
+<div class="size-14 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shrink-0 shadow-lg shadow-primary/30">
+<span class="material-symbols-outlined text-white text-2xl">science</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-white mb-2">What is a shade?</h2>
+<p class="text-white/70 text-sm leading-relaxed font-light">
+                                A shade is a hue hidden in shadow. Technically, it is purple mixed with black, but poetically, it is an emotion deepened. Whether it is the ultraviolet hum of a neon sign or the quiet dignity of a bruised plum, every hex code carries a frequency.
+                            </p>
+</div>
+</div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="sticky top-24 z-40 w-full max-w-[800px]">
+<div class="flex items-center justify-center p-2 rounded-full bg-[#130b1b]/70 backdrop-blur-xl border border-white/10 shadow-lg overflow-x-auto no-scrollbar">
+<div class="flex gap-2 min-w-max px-2">
+<button data-filter="all" class="filter-btn px-6 py-2 rounded-full bg-primary text-white text-sm font-medium shadow-[0_0_15px_rgba(115,17,212,0.4)] transition-all hover:scale-105">All Shades</button>
+<button data-filter="warm" class="filter-btn px-6 py-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white text-sm font-medium transition-all">Warm</button>
+<button data-filter="cool" class="filter-btn px-6 py-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white text-sm font-medium transition-all">Cool</button>
+<button data-filter="pastel" class="filter-btn px-6 py-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white text-sm font-medium transition-all">Pastel</button>
+<button data-filter="deep" class="filter-btn px-6 py-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white text-sm font-medium transition-all">Deep</button>
+<button data-filter="neon" class="filter-btn px-6 py-2 rounded-full hover:bg-white/10 text-white/70 hover:text-white text-sm font-medium transition-all">Neon</button>
+</div>
+</div>
+</div>
+
+<!-- CARDS GRID -->
+<div id="shadesGrid" class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-4">
+
+  <!-- Shade cards: each card has data-hex and data-categories (comma-separated) and data-var for CSS var -->
+  <!-- Lavender -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#E6E6FA" data-var="--spectral-lavender" data-categories="pastel,cool,light">
+    <div class="w-full aspect-square rounded-2xl bg-[#E6E6FA] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500 flex items-center justify-center"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Lavender</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#E6E6FA</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-green-400 text-lg">check_circle</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">AA Black</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Calm</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Dreamy</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Soft Grey or Mint</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1" aria-label="Copy Lavender hex">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1" aria-label="Copy Lavender var">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Royal Purple -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#7851A9" data-var="--spectral-royal" data-categories="deep,warm,regal">
+    <div class="w-full aspect-square rounded-2xl bg-[#7851A9] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Royal Purple</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#7851A9</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-green-400 text-lg">check_circle</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">AA White</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Regal</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Majestic</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Gold or Cream</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Electric Violet (neon) -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#8F00FF" data-var="--spectral-electric" data-categories="neon,cool,vibrant">
+    <div class="w-full aspect-square rounded-2xl bg-[#8F00FF] relative shadow-[0_0_30px_rgba(143,0,255,0.4)] group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Electric Violet</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#8F00FF</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-green-400 text-lg">check_circle</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">AA White</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Vibrant</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Digital</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Cyan or Black</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Mauve -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#E0B0FF" data-var="--spectral-mauve" data-categories="pastel,light,warm,soft">
+    <div class="w-full aspect-square rounded-2xl bg-[#E0B0FF] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Mauve</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#E0B0FF</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-green-400 text-lg">check_circle</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">AA Black</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Nostalgic</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Soft</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Teal or Beige</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Dark Byzantium -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#5D3954" data-var="--spectral-dark-byzantium" data-categories="deep,historic,regal">
+    <div class="w-full aspect-square rounded-2xl bg-[#5D3954] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Dark Byzantium</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#5D3954</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-green-400 text-lg">check_circle</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">AA White</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Intense</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Historic</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Bronze or Olive</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Thistle -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#D8BFD8" data-var="--spectral-thistle" data-categories="pastel,light,muted">
+    <div class="w-full aspect-square rounded-2xl bg-[#D8BFD8] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Thistle</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#D8BFD8</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-green-400 text-lg">check_circle</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">AA Black</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Muted</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Natural</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Forest Green</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Amethyst -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#9966CC" data-var="--spectral-amethyst" data-categories="pastel,cool,gem">
+    <div class="w-full aspect-square rounded-2xl bg-[#9966CC] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Amethyst</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#9966CC</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-green-400 text-lg">check_circle</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">AA White</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Spiritual</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Gem</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Silver or Soft Gray</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Fuchsia (neon/warm) -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#FF00FF" data-var="--spectral-fuchsia" data-categories="neon,warm,vibrant">
+    <div class="w-full aspect-square rounded-2xl bg-[#FF00FF] relative shadow-[0_0_30px_rgba(255,0,255,0.2)] group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Fuchsia</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#FF00FF</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-yellow-400 text-lg">warning</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">Low Contrast</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Playful</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Bold</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Black or Neon Cyan</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Grape -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#6F2DA8" data-var="--spectral-grape" data-categories="warm,juicy,medium">
+    <div class="w-full aspect-square rounded-2xl bg-[#6F2DA8] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Grape</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#6F2DA8</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-yellow-400 text-lg">warning</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">Medium</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Juicy</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Fun</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Mint or Pale Yellow</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Heliotrope -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#DF73FF" data-var="--spectral-heliotrope" data-categories="pastel,floral,bright">
+    <div class="w-full aspect-square rounded-2xl bg-[#DF73FF] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Heliotrope</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#DF73FF</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-yellow-400 text-lg">warning</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">Low</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Floral</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Bright</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Soft Pink or Pale Blue</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Indigo -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#4B0082" data-var="--spectral-indigo" data-categories="cool,deep,blueish">
+    <div class="w-full aspect-square rounded-2xl bg-[#4B0082] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Indigo</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#4B0082</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-green-400 text-lg">check_circle</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">AA White</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Thoughtful</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Deep</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Copper or Cream</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Lilac -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#C8A2C8" data-var="--spectral-lilac" data-categories="pastel,soft,romantic">
+    <div class="w-full aspect-square rounded-2xl bg-[#C8A2C8] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Lilac</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#C8A2C8</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-green-400 text-lg">check_circle</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">AA Black</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Gentle</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Innocent</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Forest Green or Cream</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Periwinkle -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#CCCCFF" data-var="--spectral-periwinkle" data-categories="pastel,cool,light">
+    <div class="w-full aspect-square rounded-2xl bg-[#CCCCFF] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Periwinkle</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#CCCCFF</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-yellow-400 text-lg">warning</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">Medium</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Calm</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Blueish</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Navy or White</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Plum -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#8E4585" data-var="--spectral-plum" data-categories="warm,deep,rich">
+    <div class="w-full aspect-square rounded-2xl bg-[#8E4585] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Plum</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#8E4585</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-yellow-400 text-lg">warning</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">Medium</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Warm</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Rich</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Gold or Cream</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Purple Heart -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#6A0DAD" data-var="--spectral-purple-heart" data-categories="deep,regal,bold">
+    <div class="w-full aspect-square rounded-2xl bg-[#6A0DAD] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Purple Heart</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#6A0DAD</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-green-400 text-lg">check_circle</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">AA White</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Noble</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Bold</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Black or Pale Gray</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Ultra Violet -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#5F4B8B" data-var="--spectral-ultraviolet" data-categories="cool,modern,creative">
+    <div class="w-full aspect-square rounded-2xl bg-[#5F4B8B] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Ultra Violet</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#5F4B8B</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-green-400 text-lg">check_circle</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">AA White</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Provocative</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Creative</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Neon Accents or Silver</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Violet -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#8A2BE2" data-var="--spectral-violet" data-categories="classic,bright,cool">
+    <div class="w-full aspect-square rounded-2xl bg-[#8A2BE2] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Violet</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#8A2BE2</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-green-400 text-lg">check_circle</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">AA White</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Classic</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Bright</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Yellow Ochre or Cream</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Wisteria -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#C9A0DC" data-var="--spectral-wisteria" data-categories="pastel,fragrant,soft">
+    <div class="w-full aspect-square rounded-2xl bg-[#C9A0DC] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Wisteria</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#C9A0DC</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-green-400 text-lg">check_circle</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">AA Black</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Fragrant</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Soft</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Light Teal or Cream</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Wine -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#722F37" data-var="--spectral-wine" data-categories="warm,deep,velvety">
+    <div class="w-full aspect-square rounded-2xl bg-[#722F37] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Wine</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#722F37</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-green-400 text-lg">check_circle</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">AA White</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Velvety</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Deep</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Brass or Cream</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Tyrian Purple -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#66023C" data-var="--spectral-tyrian" data-categories="deep,historic,regal">
+    <div class="w-full aspect-square rounded-2xl bg-[#66023C] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Tyrian Purple</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#66023C</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-green-400 text-lg">check_circle</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">AA White</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Historic</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Imperial</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Black or Gold</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Zaffre-ish Purple -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#6C2DC7" data-var="--spectral-zaffreish" data-categories="neon,digital,vibrant">
+    <div class="w-full aspect-square rounded-2xl bg-[#6C2DC7] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Zaffre-ish</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#6C2DC7</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-yellow-400 text-lg">warning</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">Low</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Electric</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Digital</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Black or Neon Cyan</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Mulberry -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#70193D" data-var="--spectral-mulberry" data-categories="deep,old-fashioned,warm">
+    <div class="w-full aspect-square rounded-2xl bg-[#70193D] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Mulberry</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#70193D</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-green-400 text-lg">check_circle</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">AA White</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Hearty</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Old</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Slate Gray</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Mystic Violet -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#4C2F70" data-var="--spectral-mystic-violet" data-categories="deep,moody,creative">
+    <div class="w-full aspect-square rounded-2xl bg-[#4C2F70] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Mystic Violet</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#4C2F70</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-green-400 text-lg">check_circle</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">AA White</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Moody</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Creative</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Sand or Pale Silver</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Orchid -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#DA70D6" data-var="--spectral-orchid" data-categories="pastel,floral,elegant">
+    <div class="w-full aspect-square rounded-2xl bg-[#DA70D6] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Orchid</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#DA70D6</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-yellow-400 text-lg">warning</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">Low</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Elegant</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Floral</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Soft Green or Ivory</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Jacaranda -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#6B5B95" data-var="--spectral-jacaranda" data-categories="vintage,calm,medium">
+    <div class="w-full aspect-square rounded-2xl bg-[#6B5B95] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Jacaranda</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#6B5B95</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-yellow-400 text-lg">warning</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">Medium</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Vintage</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Calm</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Light Tan</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- Lavender Blush -->
+  <article class="card-glass rounded-[2rem] p-5 flex flex-col gap-4 group transition-all duration-300" data-hex="#FFF0F5" data-var="--spectral-lavender-blush" data-categories="pastel,ultra-light,romantic">
+    <div class="w-full aspect-square rounded-2xl bg-[#FFF0F5] relative shadow-inner group-hover:scale-[1.02] transition-transform duration-500"></div>
+    <div class="flex flex-col gap-2">
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-white text-xl font-bold">Lavender Blush</h3>
+          <p class="text-xs text-white/50 font-mono mt-1">#FFF0F5</p>
+        </div>
+        <div class="flex gap-1" title="Accessibility Contrast">
+          <span class="material-symbols-outlined text-yellow-400 text-lg">warning</span>
+          <span class="text-[10px] text-white/40 uppercase self-center">Low Contrast</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 my-1">
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Romantic</span>
+        <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-white/60">Ultra-pale</span>
+      </div>
+      <p class="text-sm text-white/60 italic">Pair with: Gold Accents</p>
+    </div>
+    <div class="mt-auto pt-2 grid grid-cols-2 gap-2">
+      <button class="copy-hex h-9 rounded-lg border border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">content_copy</span> Copy
+      </button>
+      <button class="copy-var h-9 rounded-lg border border-white/10 hover:border-secondary/50 hover:bg-secondary/10 hover:text-secondary text-white/60 text-xs font-medium transition-all flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">data_object</span> Var
+      </button>
+    </div>
+  </article>
+
+  <!-- (You can add more cards below in the same pattern if you want...) -->
+
+</div> <!-- end shadesGrid -->
+
+</div>
+</main>
+<div class="w-full flex justify-center py-10 z-10 border-t border-white/5 bg-[#08020e] mt-auto">
+<div class="w-full max-w-[960px] px-8 flex flex-col md:flex-row gap-8 items-start justify-between">
+<div class="flex flex-col gap-4 w-full md:w-1/2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">terminal</span>
+<h4 class="text-white text-lg font-bold">Quick Export</h4>
+</div>
+<div class="p-4 rounded-xl bg-black/50 border border-white/10 font-mono text-xs text-white/70 overflow-x-auto code-snippet">
+<span class="text-purple-400">root</span> {<br/>
+                          <span class="text-blue-300">--spectral-lavender</span>: <span class="text-yellow-300">#E6E6FA</span>;<br/>
+                          <span class="text-blue-300">--spectral-royal</span>: <span class="text-yellow-300">#7851A9</span>;<br/>
+                          <span class="text-blue-300">--spectral-electric</span>: <span class="text-yellow-300">#8F00FF</span>;<br/>
+                        }
+                    </div>
+</div>
+<div class="flex flex-col gap-4 w-full md:w-auto">
+<h4 class="text-white text-lg font-bold">Download Palette</h4>
+<div class="flex flex-wrap gap-3">
+<button id="downloadJSON" class="px-5 py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-primary/50 text-white text-sm font-medium transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">data_object</span> JSON
+                        </button>
+<button id="downloadCSS" class="px-5 py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-primary/50 text-white text-sm font-medium transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">css</span> CSS
+                        </button>
+<button class="px-5 py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-primary/50 text-white text-sm font-medium transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">palette</span> ASE
+                        </button>
+</div>
+<footer class="w-full flex justify-center py-8 z-10 border-t border-white/5 bg-[#0a0112]/80 backdrop-blur-sm">
+<div class="layout-content-container flex flex-col max-w-[960px] w-full px-8">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6">
+<p class="text-white/30 text-sm font-light">© 2026 Amethystiee By Sanduni Basnayaka - Built with obsession for purple.</p>
+<div class="flex gap-6">
+<a class="text-white/30 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">flutter_dash</span></a>
+<a class="text-white/30 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">alternate_email</span></a>
+<a class="text-white/30 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">public</span></a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SCRIPT: filter, copy, download logic -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
+  const shadesGrid = document.getElementById('shadesGrid');
+  const shadeCards = Array.from(shadesGrid.querySelectorAll('.card-glass'));
+  const downloadJSONBtn = document.getElementById('downloadJSON');
+  const downloadCSSBtn = document.getElementById('downloadCSS');
+
+  // helper: normalize category names
+  function normalize(cat) {
+    return String(cat || '').trim().toLowerCase();
+  }
+
+  // set initial data (already on "All Shades")
+  let activeFilter = 'all';
+
+  // filtering function
+  function applyFilter(filter) {
+    activeFilter = filter;
+    shadeCards.forEach(card => {
+      const cats = (card.getAttribute('data-categories') || '').split(',').map(c => normalize(c));
+      if (filter === 'all' || cats.includes(filter)) {
+        card.style.display = ''; // show
+      } else {
+        card.style.display = 'none'; // hide
+      }
+    });
+    // visual active state for buttons (simple)
+    filterButtons.forEach(btn => {
+      if (btn.getAttribute('data-filter') === filter) {
+        btn.classList.add('bg-primary', 'text-white');
+        btn.classList.remove('text-white/70');
+        btn.style.boxShadow = '0 0 15px rgba(115,17,212,0.4)';
+      } else {
+        btn.classList.remove('bg-primary', 'text-white');
+        btn.classList.add('text-white/70');
+        btn.style.boxShadow = '';
+      }
+    });
+  }
+
+  // wire buttons
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const f = btn.getAttribute('data-filter') || 'all';
+      applyFilter(f);
+      // smooth scroll to grid (useful for mobile)
+      shadesGrid.scrollIntoView({behavior: 'smooth', block: 'start'});
+    });
+  });
+
+  // initial apply
+  applyFilter('all');
+
+  // Copy hex and var buttons
+  document.addEventListener('click', (e) => {
+    const target = e.target.closest('.copy-hex, .copy-var');
+    if (!target) return;
+    const card = target.closest('.card-glass');
+    if (!card) return;
+    const hex = card.getAttribute('data-hex') || '';
+    const varName = card.getAttribute('data-var') || '';
+    if (target.classList.contains('copy-hex')) {
+      navigator.clipboard.writeText(hex).then(() => {
+        const old = target.innerHTML;
+        target.innerHTML = '<span class="material-symbols-outlined text-sm">check</span> Copied';
+        setTimeout(() => target.innerHTML = old, 1200);
+      }).catch(()=>{/* ignore */});
+    } else if (target.classList.contains('copy-var')) {
+      const cssText = varName + ': ' + hex + ';';
+      navigator.clipboard.writeText(cssText).then(() => {
+        const old = target.innerHTML;
+        target.innerHTML = '<span class="material-symbols-outlined text-sm">check</span> Copied';
+        setTimeout(() => target.innerHTML = old, 1200);
+      }).catch(()=>{/* ignore */});
+    }
+  });
+
+  // Build array of visible shades (with name, hex, var, categories)
+  function getVisibleShades() {
+    const visible = Array.from(shadesGrid.querySelectorAll('.card-glass')).filter(c => c.style.display !== 'none');
+    return visible.map(card => {
+      const name = (card.querySelector('h3') && card.querySelector('h3').innerText) || 'Unknown';
+      return {
+        name,
+        hex: card.getAttribute('data-hex') || '',
+        var: card.getAttribute('data-var') || '',
+        categories: (card.getAttribute('data-categories') || '').split(',').map(s => s.trim()).filter(Boolean)
+      };
+    });
+  }
+
+  // Download JSON
+  downloadJSONBtn.addEventListener('click', () => {
+    const data = getVisibleShades();
+    const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'amethystiee-shades.json';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  });
+
+  // Download CSS variables
+  downloadCSSBtn.addEventListener('click', () => {
+    const data = getVisibleShades();
+    let css = ':root {\n';
+    data.forEach(s => {
+      const varName = s.var || '--spectral-' + s.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-_]/g,'');
+      css += `  ${varName}: ${s.hex};\n`;
+    });
+    css += '}';
+    const blob = new Blob([css], {type: 'text/css'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'amethystiee-shades.css';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  });
+
+});
+</script>
+
+</body></html>
