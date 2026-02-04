@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Origins: The Royal Scroll of Purple</title>
+<meta name="description" content="From Tyrian snail dye to Perkin's mauveine: the history of purple, its power in empire, industry and modern culture."/>
+<meta name="keywords" content="Tyrian purple, history of purple, mauveine, purple royalty, Tyre dye, Perkin 1856"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7311d4",
+                        "secondary": "#a855f7",
+                        "gold": "#D4AF37",
+                        "gold-light": "#F9E29C",
+                        "gold-dark": "#8A6E18",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#05010a", 
+                        "card-dark": "#0f0518",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                        "body": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                    backgroundImage: {
+                        'aurora': 'radial-gradient(circle at 50% 50%, rgba(115, 17, 212, 0.15) 0%, transparent 50%)',
+                        'mesh-dark': 'radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%)',
+                        'scroll-texture': "url('https://www.transparenttextures.com/patterns/black-paper.png')",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .text-glow {
+            text-shadow: 0 0 40px rgba(115, 17, 212, 0.8), 0 0 80px rgba(115, 17, 212, 0.5), 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+        .text-glow-gold {
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5), 0 0 5px rgba(212, 175, 55, 0.8);
+        }
+        .glass-card {
+            background: rgba(19, 11, 27, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+        .glass-card-royal {
+            background: linear-gradient(135deg, rgba(20, 10, 30, 0.8) 0%, rgba(40, 10, 40, 0.5) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(212, 175, 55, 0.1);
+        }
+        .glass-card-royal:hover {
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 40px rgba(115, 17, 212, 0.2), 0 0 15px rgba(212, 175, 55, 0.1);
+        }
+        .timeline-line {
+            background: linear-gradient(to bottom, transparent, #D4AF37 10%, #FFD700 50%, #D4AF37 90%, transparent);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0112; }
+        ::-webkit-scrollbar-thumb { background: #4a3b18; border-radius: 3px; }
+        .border-gradient-gold {
+            border-image: linear-gradient(to bottom right, #D4AF37, transparent, #D4AF37) 1;
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-white font-display overflow-x-hidden selection:bg-gold selection:text-black">
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="absolute inset-0 bg-mesh-dark opacity-50"></div>
+<div class="absolute inset-0 bg-scroll-texture opacity-20 mix-blend-overlay"></div>
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10"></div>
+<div class="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-primary/20 rounded-full blur-[150px] animate-pulse duration-[8s]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-indigo-900/30 rounded-full blur-[130px]"></div>
+</div>
+<div class="fixed top-0 w-full flex justify-center px-4 pt-6 z-50">
+<header class="flex items-center justify-between w-full max-w-[1200px] h-16 px-6 rounded-full border border-white/10 bg-[#0a0112]/70 backdrop-blur-xl shadow-lg ring-1 ring-white/5">
+<div class="flex items-center gap-3">
+<div class="size-8 text-primary flex items-center justify-center relative">
+<span class="material-symbols-outlined text-3xl text-gold drop-shadow-[0_0_10px_rgba(212,175,55,0.5)]">diamond</span>
+</div>
+<span class="text-white text-lg font-bold tracking-tight">Amethystiee</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" href="index.html">Home</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" href="discovery.html">Discovery</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" href="shade.html">Spectral</a>
+<a class="text-sm font-bold text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] border-b-2 border-primary py-1" href="origin.html">Origins</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" href="me.html">Me</a>
+</nav>
+<button class="hidden md:flex items-center justify-center h-9 px-5 rounded-full bg-primary hover:bg-primary/90 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(115,17,212,0.4)] hover:shadow-[0_0_25px_rgba(115,17,212,0.6)] focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#130b1b]">
+                    ⋆˚꩜｡
+                </button>
+<button class="md:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+</div>
+
+<main class="relative z-10 flex flex-col items-center w-full max-w-[1200px] mx-auto pt-32 pb-20 px-4 md:px-8">
+<!-- HERO -->
+<section class="w-full text-center flex flex-col items-center justify-center mb-24 relative min-h-[50vh]">
+  <div class="relative z-10 py-10">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] -z-10 opacity-10 pointer-events-none">
+      <svg class="w-full h-full text-gold" fill="none" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 20 L130 60 H70 L100 20Z M150 40 L160 80 H40 L50 40 L70 60 H130 L150 40Z" stroke="currentColor" stroke-width="0.5"></path>
+        <path d="M10 50 Q50 90 100 90 T190 50" stroke="currentColor" stroke-dasharray="2 2" stroke-width="0.5"></path>
+        <circle cx="100" cy="15" fill="currentColor" r="5"></circle>
+        <circle cx="50" cy="35" fill="currentColor" r="3"></circle>
+        <circle cx="150" cy="35" fill="currentColor" r="3"></circle>
+      </svg>
+    </div>
+    <h1 class="text-[12vw] md:text-[150px] font-bold leading-[0.85] tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-purple-100 to-primary/60 text-glow select-none font-serif italic pr-4">
+      ORIGINS
+    </h1>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 blur-[100px] bg-primary/30 -z-10 rounded-full"></div>
+  </div>
+
+  <p class="mt-8 text-lg md:text-2xl text-gold-light/80 font-light max-w-2xl leading-relaxed font-serif italic">
+    The Royal Scroll of Purple
+  </p>
+  <p class="mt-2 text-sm md:text-base text-white/60 font-light max-w-xl leading-relaxed tracking-wide uppercase">
+    Once a dye worth its weight in gold, purple wrote its way through kings, laws, and fashion.
+  </p>
+
+<div class="mt-8 w-full max-w-lg mx-auto">
+  <div class="bg-[#0b0610] border border-white/10 rounded-xl p-4 text-sm text-white/70 flex flex-col gap-4 items-center">
+
+    <!-- Shiny alert text -->
+    <span
+      class="text-[11px] tracking-wide text-purple-300 animate-pulse
+             drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]"
+    >
+      ✦ Tap a point to jump ✦
+    </span>
+
+    <!-- Centered timeline pills -->
+    <div class="flex gap-2 justify-center flex-wrap">
+      <a href="#tyrian"
+         class="px-3 py-1 rounded-full bg-white/5 border border-white/10
+                text-xs text-white/70 hover:text-white
+                hover:bg-purple-500/10 hover:border-purple-400/30
+                transition">
+        Ancient Tyrian
+      </a>
+
+      <a href="#byzantine" class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white/70 hover:text-white hover:bg-purple-500/10 transition">
+        Byzantine
+      </a>
+
+      <a href="#mauveine" class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white/70 hover:text-white hover:bg-purple-500/10 transition">
+        1856 Mauveine
+      </a>
+
+      <a href="#modern" class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white/70 hover:text-white hover:bg-purple-500/10 transition">
+        Modern Era
+      </a>
+    </div>
+
+  </div>
+</div>
+
+  <div class="mt-16 animate-bounce">
+    <span class="material-symbols-outlined text-gold/50 text-3xl">keyboard_arrow_down</span>
+  </div>
+</section>
+
+<!-- GRID: Sidebar timeline + content -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full">
+  <div class="hidden lg:block lg:col-span-3 relative">
+    <div class="sticky top-40 flex flex-col gap-1">
+      <div class="absolute left-[7px] top-2 bottom-2 w-[2px] timeline-line opacity-80 shadow-[0_0_10px_#D4AF37]"></div>
+
+      <a class="timeline-link group flex items-center gap-4 py-3 pl-1 relative" href="#tyrian" data-target="#tyrian">
+        <div class="w-4 h-4 rounded-full border border-gold bg-gold/20 z-10 group-hover:bg-gold transition-colors shadow-[0_0_15px_rgba(212,175,55,0.6)]"></div>
+        <span class="text-sm font-bold text-gold/90 tracking-wide group-hover:text-gold group-hover:translate-x-1 transition-all font-serif">ANCIENT TYRIAN</span>
+      </a>
+
+      <a class="timeline-link group flex items-center gap-4 py-3 pl-1 relative" href="#byzantine" data-target="#byzantine">
+        <div class="w-4 h-4 rounded-full border border-white/20 bg-background-dark z-10 group-hover:border-gold group-hover:bg-gold/50 transition-colors"></div>
+        <span class="text-sm font-medium text-white/50 tracking-wide group-hover:text-white group-hover:translate-x-1 transition-all">BYZANTINE &amp; ROMAN</span>
+      </a>
+
+      <a class="timeline-link group flex items-center gap-4 py-3 pl-1 relative" href="#mauveine" data-target="#mauveine">
+        <div class="w-4 h-4 rounded-full border border-white/20 bg-background-dark z-10 group-hover:border-gold group-hover:bg-gold/50 transition-colors"></div>
+        <span class="text-sm font-medium text-white/50 tracking-wide group-hover:text-white group-hover:translate-x-1 transition-all">1856 MAUVEINE</span>
+      </a>
+
+      <a class="timeline-link group flex items-center gap-4 py-3 pl-1 relative" href="#modern" data-target="#modern">
+        <div class="w-4 h-4 rounded-full border border-white/20 bg-background-dark z-10 group-hover:border-gold group-hover:bg-gold/50 transition-colors"></div>
+        <span class="text-sm font-medium text-white/50 tracking-wide group-hover:text-white group-hover:translate-x-1 transition-all">MODERN ERA</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="lg:col-span-9 flex flex-col gap-24">
+    <!-- Tyrian section (expanded slightly with "Did you know?" facts) -->
+    <article class="flex flex-col gap-6 scroll-mt-32" id="tyrian">
+      <div class="flex items-center gap-4 mb-2 lg:hidden">
+        <div class="w-12 h-[1px] bg-gold"></div>
+        <span class="text-xs font-bold text-gold tracking-widest uppercase">Ancient Tyrian</span>
+      </div>
+
+      <div class="glass-card-royal rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden group border-t-2 border-t-gold/40">
+        <div class="absolute -top-20 -right-20 w-[400px] h-[400px] bg-purple-900/40 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="absolute top-0 right-0 p-10 opacity-10 pointer-events-none">
+          <img alt="shell icon" class="w-32 h-32 invert opacity-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHhP2NFEc_e305SEfrD305jJsh4OG5vrkk5at06joZOvA99dhqLqAwAVRtholEHN_NE2iZdb9kXlQ-B6owdTKpu8x9vTzCBw9Ll0iI0VyVeasFLQu1-Qi_MRrMbsa0Op8GZBIrXXlxd_beqVgowgROHaEPVIs6bg4wrDwA1LQz50-BJGlck126f2Wh0Bq-Y6wFj5F54LIA-kgmUiI-V2Z237lSrCOWx80-CVonC1fMuMaNZuLPnceXuFPSWt76BN53xza9TGYusls"/>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center relative z-10">
+          <div class="flex flex-col gap-8">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/10 border border-gold/30 w-fit backdrop-blur-md">
+              <span class="material-symbols-outlined text-sm text-gold">water_drop</span>
+              <span class="text-xs font-mono text-gold-light uppercase tracking-wider">Murex brandaris mucus</span>
+            </div>
+
+            <div>
+              <h2 class="text-4xl md:text-5xl font-serif italic text-white mb-2">Tyrian Purple</h2>
+              <h3 class="text-gold text-sm tracking-[0.2em] uppercase font-bold">The Imperial Dye</h3>
+            </div>
+
+            <p class="text-lg text-white/80 leading-relaxed font-light font-serif">
+              Harvested from the secretions of sea snails in Tyre, Lebanon. It took <span class="text-gold font-medium border-b border-gold/30">thousands of snails</span> to produce a tiny jar of dye. The labor and rarity made it a status symbol across empires.
+            </p>
+
+            <blockquote class="border-l-2 border-gold pl-6 py-2 my-2 bg-gradient-to-r from-gold/5 to-transparent">
+              <p class="text-xl md:text-2xl italic font-serif text-white/90">"To wear purple was to stand among the powerful."</p>
+            </blockquote>
+          </div>
+
+          <div class="flex flex-col gap-6">
+            <div class="relative rounded-2xl overflow-hidden border border-gold/30 shadow-[0_0_20px_rgba(0,0,0,0.5)] group-hover:scale-[1.02] transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-br from-purple-900/40 to-black/20 z-10"></div>
+              <img alt="Ancient Royal Textile" class="w-full h-64 object-cover opacity-90 grayscale-[20%] sepia-[20%]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFNBHWx2A-vX7ZpwqcTY0pJHRH-aDmaun9ab6WPPlsZ-x5r7jp7ufWb76USwUkN7uvBteq9jC2aUAv-3QmAbOahcXR-QmZKv-EOe60qEKv_pyawTT2vvBVWX5UXW4llEjq9klz1zT1myD9jAMqF6JGuvGwrjslIQA9aHNQW94qDe6jmJmFDi4EE-m5NHMD-AsDsgrO5y5Yz3Q5iatM5cFqMpKlqBS7LKzkZN_xUcpEVwO1Gbof0OSyln27ob4ub0j0mDnVnmjEb0g"/>
+              <div class="absolute bottom-0 left-0 right-0 p-4 bg-black/60 backdrop-blur-sm border-t border-white/10 z-20">
+                <span class="text-xs font-mono text-gold/80 uppercase tracking-widest">Fig 01. Royal Silk Fragment</span>
+              </div>
+            </div>
+
+            <div class="flex gap-4 items-center">
+              <div class="w-20 h-20 rounded-xl overflow-hidden border border-white/20 shrink-0">
+                <img alt="Murex Snail Shell Texture" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa3hP-hqmQdsN2i9W3W65nLvyUdDrHmmMNqEAisIwgBQUiD0kVYFNAdlxh--5bhUiFGNJwT0rQg_fLPCkhA4zlF6UuYtVJWnYEiiNyT3zI9bWlzd9A_x_-3BXFG0HpIN-A7hhUENdUbrO3X-PDyTuZtGYun64Urw081hbbAmajzLOuAsAuDWXZvkWSm3-CvSWLTBgOuAbFlJMpoJJnaL2bfAF2bQVx8yCkVN1XygTY_tXhL5Ez9ReBKwDTeV7zQyiuXvTsVSwmYoU"/>
+              </div>
+              <div>
+                <p class="text-xs text-white/50 leading-snug">
+                  The <i>Bolinus brandaris</i> and related snails produced the secretions used for royal purple dye in the ancient Mediterranean.
+                </p>
+                <p class="text-xs text-white/40 mt-1">Image and artifact suggestions: Wikimedia Commons textile fragments, archaeological reports on Tyrian dye.</p>
+              </div>
+            </div>
+
+            <div class="bg-white/5 p-4 rounded-lg border border-white/5 text-sm text-white/60">
+              <strong class="text-white">Did you know?</strong>
+              <p class="mt-1 text-xs">Ancient sources claim that purple cloth could cost as much as silver or land — it was a political as well as a fashion symbol.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Byzantine & Roman -->
+    <article class="flex flex-col gap-6 scroll-mt-32" id="byzantine">
+      <div class="flex items-center gap-4 mb-2 lg:hidden">
+        <div class="w-12 h-[1px] bg-white/30"></div>
+        <span class="text-xs font-bold text-white/50 tracking-widest uppercase">Byzantine &amp; Roman</span>
+      </div>
+
+      <div class="glass-card rounded-[2rem] p-8 md:p-10 relative overflow-hidden flex flex-col md:flex-row gap-8 bg-gradient-to-b from-[#1a0524] to-[#0f0214] border border-white/5">
+        <div class="absolute top-0 right-0 w-2/3 h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay"></div>
+        <div class="w-full md:w-5/12 shrink-0 flex flex-col gap-4">
+          <div class="h-64 rounded-t-full rounded-b-xl border-2 border-gold/30 relative overflow-hidden shadow-2xl">
+            <img alt="Byzantine Mosaic Style" class="w-full h-full object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKGMdwOuTQ5SfvXIS7RJLGrG4e1SLCGdGsadOMeHvh69rMMNwXBJQ7pWOLuSInhMgqEyAk1yiGSwBgRLTu0VkgsXrTZ7jekhwZY3JH4t70_lxfb9C5_F7uR3vI5_FfoTW7c6ncvr2JdPuocy2-nSOUHYkAZKBoasyHOCgNRYFMceVrnaTP6C5d_ZqG5W_MLnxtYS0icHMmLDei4rgfzDo831Y_9Rchz-yt90euWZR_64xgxlJybdNU5YzvAYexfjsS678b0rB_zLU"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-purple-900/60 to-transparent mix-blend-multiply"></div>
+          </div>
+
+          <div class="h-32 rounded-xl bg-[#3D0C1D] border border-white/10 relative overflow-hidden group hover:shadow-[0_0_30px_rgba(115,17,212,0.2)] transition-shadow">
+            <img alt="Imperial Porphyry" class="w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_3QbXSUhlX0rrkH4h0XW2N4v9z-pqegHo5h-7xy95vH-BbvxMP5xqfb12cgZMVmQJJ7mKajWDRBcJirWocYvFPufh6f9838GfE9aqCS666Araa-m2SrW3U6mK7Sg6kpas-Px7EAOXnWwQWQsQoL4hyZyVOwvWUaP6uLYn6tL5eYvjsqgpRmkN47HlaBrNynQ5SqZOLPBKVj_4AfZKoELw3IJRO30dGoF1UVPCzZp6WKf0AAHBYTMyO6KAZdHsweq_EEiIy3I9Z9o"/>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="text-white/80 font-serif italic text-lg drop-shadow-md">Imperial Porphyry</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col justify-center gap-6 relative z-10">
+          <div class="flex items-center gap-3">
+            <span class="h-[1px] w-8 bg-gold"></span>
+            <span class="text-gold text-xs uppercase tracking-widest font-bold">The Royal Law</span>
+          </div>
+
+          <h3 class="text-4xl md:text-5xl font-serif text-white leading-tight">Born in the <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-600">Purple</span></h3>
+
+          <p class="text-white/70 leading-relaxed text-lg">
+            Under Roman and Byzantine rule, purple cloth and porphyry signified office and birthright. Sumptuary laws limited dye use, keeping power visible and exclusive.
+          </p>
+
+          <div class="bg-white/5 p-4 rounded-xl border border-white/5 backdrop-blur-sm">
+            <h4 class="text-sm font-bold text-gold mb-1">Porphyrogenitus</h4>
+            <p class="text-xs text-white/50 leading-relaxed">
+              "Born in the purple" described imperial heirs born within the purple chamber. The phrase became shorthand for legitimate royal lineage.
+            </p>
+          </div>
+
+          <div class="flex gap-3 mt-2">
+            <span class="px-3 py-1 rounded bg-purple-900/20 border border-gold/20 text-xs text-gold/80 flex items-center gap-1">
+              <span class="material-symbols-outlined text-[14px]">gavel</span> Sumptuary Laws
+            </span>
+            <span class="px-3 py-1 rounded bg-purple-900/20 border border-gold/20 text-xs text-gold/80 flex items-center gap-1">
+              <span class="material-symbols-outlined text-[14px]">crown</span> Royalty Only
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </article>
+
+    <!-- Mauveine -->
+    <article class="flex flex-col gap-6 scroll-mt-32" id="mauveine">
+      <div class="flex items-center gap-4 mb-2 lg:hidden">
+        <div class="w-12 h-[1px] bg-white/30"></div>
+        <span class="text-xs font-bold text-white/50 tracking-widest uppercase">1856 Mauveine</span>
+      </div>
+
+      <div class="glass-card rounded-[2rem] p-0 overflow-hidden relative border-4 border-double border-[#6e5a35] bg-[#1a1510]">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] opacity-20 mix-blend-overlay pointer-events-none"></div>
+        <div class="grid md:grid-cols-5 h-full relative z-10">
+          <div class="md:col-span-3 p-8 md:p-12 flex flex-col justify-center gap-6 z-10 bg-gradient-to-r from-black/80 to-transparent">
+            <div class="flex items-center gap-2 text-secondary">
+              <span class="material-symbols-outlined text-[#cd7f32]">science</span>
+              <span class="text-sm font-bold tracking-wider uppercase text-[#cd7f32] font-mono">Industrial Revolution</span>
+            </div>
+            <h3 class="text-4xl md:text-5xl font-serif text-white">The Accidental Color</h3>
+            <p class="text-white/70 leading-relaxed font-mono text-sm border-l-2 border-[#cd7f32] pl-4">
+              LAB NOTE: 1856. SUBJECT: William Perkin (18).<br/>
+              GOAL: Synthesize quinine (malaria cure).<br/>
+              RESULT: Black sludge. <br/>
+              OBSERVATION: Turns vivid purple in alcohol.
+            </p>
+
+            <div class="flex items-center gap-4 mt-2">
+              <div class="size-16 rounded-full overflow-hidden border-2 border-[#cd7f32] sepia contrast-125">
+                <img alt="William Perkin portrait" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQI4Kew0F_nu-vdKDuGv-WNxziIdKqQ2EsgqwA3pBadFQ_NQbq269gLp0MXbH79fBKlPq9l7cn9kgrNgbvp9WJXzht1RtAX2AxNW0VR5msqpVmXJJoRKRhPHusY3-RZLy-qRzS3S7mWGt-g2jJH3eoNXDM1U-mcLPdR_gKez1FVHaIUNejZRXl9Z9TG88vtcMb0-Fg3-_msexHsRZb8LIsx48xNQ4Xq3xCPqMn4kh97KqUPZ22uueKTAz1fscWxSOVizmy0z2dqnQ"/>
+              </div>
+              <div>
+                <p class="text-white font-bold">William Perkin</p>
+                <p class="text-xs text-white/40 uppercase">Chemist &amp; Entrepreneur</p>
+              </div>
+            </div>
+
+            <div class="bg-white/5 p-4 rounded-lg border border-white/5 text-sm text-white/60">
+              <strong class="text-white">Impact</strong>
+              <p class="mt-1 text-xs">Mauveine made purple affordable, changing fashion and making purple visible in middle-class wardrobes for the first time.</p>
+            </div>
+          </div>
+
+          <div class="md:col-span-2 relative flex flex-col bg-[#0f0b08] border-l border-[#6e5a35]/30">
+            <div class="h-1/2 relative overflow-hidden">
+              <img alt="Chemistry Lab Glass" class="w-full h-full object-cover opacity-60 mix-blend-luminosity hover:mix-blend-normal transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl5EzTcvR_ApfM6FzcvfBuf9SBQ-JTH2X_cMDHmIGYRd5jQMnPsth84msahrr8bR9V-SKBkJErJebpI9D4ipMQVQeXTN34K5kSulbc16K22KvZ9nlpViyUUd5ZfYSN7kVq593P0RIML9nDmLLIc6nPZhUo6ULG9q8kdwc8cf-IlHCOSt21v5zd-agXobMUXv2leo2xEd6xSWMEg-vB5sNPGl2Q2dN7DJ7U7I5pCPL_0ywHklFHFC7vsEtica7noFNtW7wZg2vWzr8"/>
+              <div class="absolute inset-0 bg-purple-500/10 mix-blend-color"></div>
+            </div>
+
+            <div class="h-1/2 relative flex items-center justify-center bg-[#150f18] overflow-hidden">
+              <div class="relative w-full h-full flex items-center justify-center">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-secondary/20 via-transparent to-transparent"></div>
+                <div class="w-32 h-32 border border-white/10 rounded-full animate-[spin_8s_linear_infinite] flex items-center justify-center">
+                  <div class="w-24 h-24 border border-white/20 rounded-full animate-[spin_4s_linear_infinite_reverse]"></div>
+                </div>
+                <div class="absolute text-center">
+                  <span class="block text-3xl font-bold text-white drop-shadow-lg font-serif">1856</span>
+                  <span class="text-[10px] text-white/50 tracking-[0.3em] uppercase">Mauveine</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Modern -->
+    <article class="flex flex-col gap-6 mb-20 scroll-mt-32" id="modern">
+      <div class="flex items-center gap-4 mb-2 lg:hidden">
+        <div class="w-12 h-[1px] bg-white/30"></div>
+        <span class="text-xs font-bold text-white/50 tracking-widest uppercase">Today</span>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 transition-transform duration-500 group">
+          <div class="h-48 relative overflow-hidden">
+            <img alt="Protest Banner Vibes" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700" src="https://images.unsplash.com/photo-1583339522870-0d9f28cef33f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-6">
+              <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-xs text-white uppercase tracking-wider font-bold">Equality</span>
+            </div>
+          </div>
+          <div class="p-8 pt-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-bold text-white">Suffrage &amp; Power</h3>
+              <span class="material-symbols-outlined text-purple-400">diversity_2</span>
+            </div>
+            <p class="text-sm text-white/60 leading-relaxed mb-4">
+              In the 20th century, purple was used by suffragettes as a color of dignity and hope. Later, purple tones found place in flags, movements, and branding.
+            </p>
+            <p class="text-xs text-white/40">Examples: suffragette banners (early 1900s), purple in LGBTQ+ symbology, and contemporary political movements using violet tones.</p>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 transition-transform duration-500 group">
+          <div class="h-48 relative overflow-hidden">
+            <img alt="High Fashion Purple" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700" src="https://images.stockcake.com/public/f/f/b/ffbb37a7-b216-4b96-93c5-4cdbcab377f1_large/royal-purple-elegance-stockcake.jpg"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-6">
+              <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-xs text-white uppercase tracking-wider font-bold">Luxury</span>
+            </div>
+          </div>
+          <div class="p-8 pt-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-bold text-white">Digital &amp; Luxury</h3>
+              <span class="material-symbols-outlined text-purple-400">auto_awesome</span>
+            </div>
+            <p class="text-sm text-white/60 leading-relaxed">
+              Purple now signals creativity, luxury, and digital futurism — from fashion runways to premium user interfaces. Brands use violet to hint at imagination and rarity.
+            </p>
+            <p class="text-xs text-white/40 mt-3">Examples: premium branding, tech product gradients, high-fashion editorials.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sources & Further Reading -->
+      <div class="mt-6 p-6 rounded-2xl bg-[#07030a]/60 border border-white/5">
+        <h4 class="text-white font-bold mb-3">Sources & Further Reading</h4>
+        <ul class="text-white/60 text-sm list-disc list-inside space-y-2">
+          <li>Ancient sources and archaeological reports on Tyrian dye — searchable on Wikimedia Commons and academic archives.</li>
+          <li>William Perkin and the discovery of mauveine (1856) — chemistry histories and industrial heritage museums.</li>
+          <li>Sumptuary laws and Byzantine court life — historical studies on imperial custom and symbolism.</li>
+        </ul>
+        <p class="text-xs text-white/40 mt-3">Image credit suggestions: Wikimedia Commons, Unsplash (public domain / free), museum archives. When publishing, include each image's source and license.</p>
+      </div>
+
+    </article>
+
+  </div>
+</div>
+
+</main>
+
+<!-- Footer -->
+<footer class="w-full flex justify-center py-8 z-10 border-t border-white/5 bg-[#0a0112]/80 backdrop-blur-sm">
+  <div class="layout-content-container flex flex-col max-w-[960px] w-full px-8">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <p class="text-white/30 text-sm font-light">© 2026 Amethystiee By Sanduni Basnayaka - Built with obsession for purple.</p>
+      <div class="flex gap-6">
+        <a class="text-white/30 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">flutter_dash</span></a>
+        <a class="text-white/30 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">alternate_email</span></a>
+        <a class="text-white/30 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">public</span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Small scripts: smooth scroll and scrollspy for timeline -->
+<script>
+(function () {
+  // Smooth scroll for timeline links
+  const links = document.querySelectorAll('.timeline-link');
+  links.forEach(a => {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (!target) return;
+      const topOffset = 80; // account for fixed header
+      const rect = target.getBoundingClientRect();
+      const scrollTop = window.scrollY + rect.top - topOffset;
+      window.scrollTo({ top: scrollTop, behavior: 'smooth' });
+      // update URL hash without jumping
+      history.replaceState(null, '', this.getAttribute('href'));
+    });
+  });
+
+  // Scrollspy: highlight current timeline item
+  const sections = Array.from(document.querySelectorAll('#tyrian, #byzantine, #mauveine, #modern'));
+  const timelineLinks = Array.from(document.querySelectorAll('.timeline-link'));
+  const headerOffset = 100;
+
+  function onScrollSpy() {
+    const fromTop = window.scrollY + headerOffset;
+    let current = sections[0];
+    for (let sec of sections) {
+      if (sec.offsetTop <= fromTop) current = sec;
+    }
+    timelineLinks.forEach(link => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target === current) {
+        link.querySelector('span').classList.add('text-gold');
+        link.querySelector('div').classList.add('bg-gold','border-gold');
+      } else {
+        link.querySelector('span').classList.remove('text-gold');
+        link.querySelector('div').classList.remove('bg-gold','border-gold');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', onScrollSpy, { passive: true });
+  // run on load
+  onScrollSpy();
+})();
+</script>
+
+</body></html>

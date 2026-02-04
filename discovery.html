@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Discovery: Immersive Gallery</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7311d4",
+                        "secondary": "#a855f7",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#0a0112",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                    backgroundImage: {
+                        'aurora': 'radial-gradient(circle at 50% 50%, rgba(115, 17, 212, 0.15) 0%, transparent 50%)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .text-glow {
+            text-shadow: 0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(115, 17, 212, 0.3);
+        }
+        .card-glass {
+            background: rgba(26, 18, 37, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: inset 0 0 20px rgba(115, 17, 212, 0.05);
+            min-height: 420px; /* reduced size */
+            transition: all 0.3s ease-in-out;
+        }
+        .card-glass:hover {
+            box-shadow: inset 0 0 40px rgba(115, 17, 212, 0.25), 0 0 30px rgba(115, 17, 212, 0.3);
+            border-color: rgba(115, 17, 212, 0.6);
+        }
+        .glass-sphere {
+            background: radial-gradient(circle at 30% 30%, rgba(168, 85, 247, 0.4), rgba(115, 17, 212, 0.1) 60%, rgba(10, 1, 18, 0.6) 90%);
+            backdrop-filter: blur(4px);
+            box-shadow: inset -10px -10px 30px rgba(0,0,0,0.5), inset 10px 10px 30px rgba(255,255,255,0.2), 0 0 50px rgba(115, 17, 212, 0.3);
+        }
+        .overlay-glass {
+             background: rgba(19, 11, 27, 0.85);
+             backdrop-filter: blur(8px);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0112; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #332545; 
+            border-radius: 4px;
+        }
+</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-white font-display overflow-x-hidden selection:bg-primary selection:text-white">
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] mix-blend-screen animate-pulse duration-[10s]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[700px] h-[700px] bg-secondary/10 rounded-full blur-[130px] mix-blend-screen"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[100px]"></div>
+</div>
+<div class="relative z-10 flex flex-col min-h-screen">
+<div class="w-full flex justify-center px-4 pt-6 fixed top-0 z-50">
+<header class="flex items-center justify-between w-full max-w-[960px] h-16 px-6 rounded-full border border-white/10 bg-[#130b1b]/60 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+<div class="flex items-center gap-3">
+<div class="size-8 flex items-center justify-center">
+  <img src="assets/logo.png" alt="Logo" class="h-8 w-8" />
+</div>
+<span class="text-white text-lg font-bold tracking-tight">Amethystiee</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" href="index.html">Home</a>
+<a class="text-sm font-bold text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] border-b-2 border-primary py-1" href="discovery.html">Discovery</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" href="shade.html">Spectral</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" href="origin.html">Origin</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" href="me.html">Me</a>
+</nav>
+<button class="hidden md:flex items-center justify-center h-9 px-5 rounded-full bg-primary hover:bg-primary/90 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(115,17,212,0.4)] hover:shadow-[0_0_25px_rgba(115,17,212,0.6)] focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#130b1b]">
+                    ⋆˚꩜｡
+                </button>
+<button class="md:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+</div>
+<main class="flex-grow flex flex-col items-center pt-28 pb-10 px-4 md:px-8">
+<div class="w-full max-w-[1400px] flex flex-col items-center gap-12">
+<div class="flex flex-col items-center text-center gap-6 mt-12 w-full relative">
+<div class="relative w-full flex justify-center h-[200px] items-center overflow-visible">
+<div class="absolute left-1/2 top-1/2 -translate-x-[40%] -translate-y-[40%] w-[180px] h-[180px] rounded-full glass-sphere z-20 pointer-events-none animate-pulse duration-[8s]"></div>
+<h1 class="text-7xl md:text-9xl font-bold tracking-[0.1em] text-white/90 text-glow leading-none select-none z-10 mix-blend-overlay">
+                            DISCOVERY
+                        </h1>
+<h1 class="text-7xl md:text-9xl font-bold tracking-[0.1em] text-white/10 leading-none select-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 blur-sm">
+                            DISCOVERY
+                        </h1>
+</div>
+<div class="flex flex-col items-center gap-3 max-w-2xl mx-auto z-10">
+<p class="text-white/60 text-lg font-light tracking-wide leading-relaxed">
+                            Navigate the ethereal plane. From ancient myths to future hues, explore the spectrum of violet existence.
+                        </p>
+</div>
+</div>
+
+<!-- GRID START -->
+<div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+
+<!-- History Card -->
+<article class="card-glass rounded-[2rem] p-0 overflow-hidden group relative flex flex-col cursor-pointer focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 focus-within:ring-offset-black" tabindex="0" onclick="location.href='origin.html';">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1589560486116-5a51b3340fe8?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&amp;w=2070&amp;auto=format&amp;fit=crop')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+<div class="relative p-6 h-full flex flex-col justify-end z-10">
+<div class="mb-auto flex justify-between items-start">
+<span class="px-2 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] font-bold uppercase tracking-wider backdrop-blur-md">History</span>
+<span class="material-symbols-outlined text-white/50 group-hover:text-white transition-colors">arrow_outward</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-1 leading-tight">Tyrian Origins</h3>
+<p class="text-white/60 line-clamp-2 group-hover:opacity-0 transition-opacity duration-300">The ancient dye made from sea snails that colored the robes of emperors and kings.</p>
+</div>
+<div class="absolute inset-0 overlay-glass opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center p-6 translate-y-4 group-hover:translate-y-0">
+<div class="size-12 rounded-full bg-amber-500/20 text-amber-300 flex items-center justify-center mb-3 border border-amber-500/30">
+<span class="material-symbols-outlined">history_edu</span>
+</div>
+<h4 class="text-lg font-bold text-white mb-2 ">Preview</h4>
+<p class="text-white/80 font-light leading-relaxed text-sm">
+Extracted from the predatory rock snail, Tyrian purple was worth more than gold. Explore the grueling extraction and its monopoly.
+</p>
+<div class="mt-4 flex items-center text-amber-300 text-xs font-bold uppercase tracking-widest gap-1">
+Read Article <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</article>
+
+<!-- Nature Card -->
+<article class="card-glass rounded-[2rem] p-0 overflow-hidden group relative flex flex-col cursor-pointer focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 focus-within:ring-offset-black" tabindex="0" onclick="location.href='#';">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1654216937627-11728b27bed3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&amp;w=1760&amp;auto=format&amp;fit=crop')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+<div class="relative p-6 h-full flex flex-col justify-end z-10">
+<div class="mb-auto flex justify-between items-start">
+<span class="px-2 py-1 rounded-full bg-green-500/20 text-green-300 border border-green-500/30 text-[10px] font-bold uppercase tracking-wider backdrop-blur-md">Nature</span>
+<span class="material-symbols-outlined text-white/50 group-hover:text-white transition-colors">arrow_outward</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-1 leading-tight">Crystalline Growth</h3>
+<p class="text-white/60 line-clamp-2 group-hover:opacity-0 transition-opacity duration-300">How geodes transform into breathtaking amethyst cathedrals over millennia.</p>
+</div>
+<div class="absolute inset-0 overlay-glass opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center p-6 translate-y-4 group-hover:translate-y-0">
+<div class="size-12 rounded-full bg-green-500/20 text-green-300 flex items-center justify-center mb-3 border border-green-500/30">
+<span class="material-symbols-outlined">landscape</span>
+</div>
+<h4 class="text-lg font-bold text-white mb-2">Preview</h4>
+<p class="text-white/80 font-light leading-relaxed text-sm">
+Witness the geological timeline of purple crystal formation found in volcanic traps of Brazil.
+</p>
+<div class="mt-4 flex items-center text-green-300 text-xs font-bold uppercase tracking-widest gap-1">
+View Gallery <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</article>
+
+<!-- Science Card -->
+<article class="card-glass rounded-[2rem] p-0 overflow-hidden group relative flex flex-col cursor-pointer focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 focus-within:ring-offset-black" tabindex="0" onclick="location.href='#';">
+<div class="absolute inset-0 bg-[url('https://plus.unsplash.com/premium_photo-1733342672471-330d436a7c5c?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&amp;w=2111&amp;auto=format&amp;fit=crop')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+<div class="relative p-6 h-full flex flex-col justify-end z-10">
+<div class="mb-auto flex justify-between items-start">
+<span class="px-2 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-[10px] font-bold uppercase tracking-wider backdrop-blur-md">Science</span>
+<span class="material-symbols-outlined text-white/50 group-hover:text-white transition-colors">arrow_outward</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-1 leading-tight">Visible Spectrum</h3>
+<p class="text-white/60 line-clamp-2 group-hover:opacity-0 transition-opacity duration-300">Why purple doesn't exist on the spectrum and is purely a creation of our brain.</p>
+</div>
+<div class="absolute inset-0 overlay-glass opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center p-6 translate-y-4 group-hover:translate-y-0">
+<div class="size-12 rounded-full bg-cyan-500/20 text-cyan-300 flex items-center justify-center mb-3 border border-cyan-500/30">
+<span class="material-symbols-outlined">science</span>
+</div>
+<h4 class="text-lg font-bold text-white mb-2">Preview</h4>
+<p class="text-white/80 font-light leading-relaxed text-sm">
+Violet is a real wavelength, but 'purple' is a non-spectral color. Explore the psychophysics of perception.
+</p>
+<div class="mt-4 flex items-center text-cyan-300 text-xs font-bold uppercase tracking-widest gap-1">
+Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</article>
+
+<!-- Myth Card -->
+<article class="card-glass rounded-[2rem] p-0 overflow-hidden group relative flex flex-col cursor-pointer focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 focus-within:ring-offset-black" tabindex="0" onclick="location.href='#';">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1737302998863-6e7252d55a02?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&amp;w=2094&amp;auto=format&amp;fit=crop')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+<div class="relative p-6 h-full flex flex-col justify-end z-10">
+<div class="mb-auto flex justify-between items-start">
+<span class="px-2 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 text-[10px] font-bold uppercase tracking-wider backdrop-blur-md">Myth</span>
+<span class="material-symbols-outlined text-white/50 group-hover:text-white transition-colors">arrow_outward</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-1 leading-tight">Dionysus' Tears</h3>
+<p class="text-white/60 line-clamp-2 group-hover:opacity-0 transition-opacity duration-300">The Greek legend explaining the deep wine color of amethyst stones.</p>
+</div>
+<div class="absolute inset-0 overlay-glass opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center p-6 translate-y-4 group-hover:translate-y-0">
+<div class="size-12 rounded-full bg-purple-500/20 text-purple-300 flex items-center justify-center mb-3 border border-purple-500/30">
+<span class="material-symbols-outlined">auto_stories</span>
+</div>
+<h4 class="text-lg font-bold text-white mb-2">Preview</h4>
+<p class="text-white/80 font-light leading-relaxed text-sm">
+Enraged by a mortal insult, Dionysus set tigers upon Amethystos. Artemis turned her into quartz. Remorseful, the god poured wine over the stone.
+</p>
+<div class="mt-4 flex items-center text-purple-300 text-xs font-bold uppercase tracking-widest gap-1">
+Read Myth <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</article>
+
+<!-- Art Card -->
+<article class="card-glass rounded-[2rem] p-0 overflow-hidden group relative flex flex-col cursor-pointer focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 focus-within:ring-offset-black" tabindex="0" onclick="location.href='#';">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1660786254519-e899d4e2e405?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&amp;w=2070&amp;auto=format&amp;fit=crop')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+<div class="relative p-6 h-full flex flex-col justify-end z-10">
+<div class="mb-auto flex justify-between items-start">
+<span class="px-2 py-1 rounded-full bg-pink-500/20 text-pink-300 border border-pink-500/30 text-[10px] font-bold uppercase tracking-wider backdrop-blur-md">Art</span>
+<span class="material-symbols-outlined text-white/50 group-hover:text-white transition-colors">arrow_outward</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-1 leading-tight">Neon Noir</h3>
+<p class="text-white/60 line-clamp-2 group-hover:opacity-0 transition-opacity duration-300">Purple lighting in cyberpunk and synthwave aesthetics.</p>
+</div>
+<div class="absolute inset-0 overlay-glass opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center p-6 translate-y-4 group-hover:translate-y-0">
+<div class="size-12 rounded-full bg-pink-500/20 text-pink-300 flex items-center justify-center mb-3 border border-pink-500/30">
+<span class="material-symbols-outlined">palette</span>
+</div>
+<h4 class="text-lg font-bold text-white mb-2">Preview</h4>
+<p class="text-white/80 font-light leading-relaxed text-sm">
+From Blade Runner streets to digital sunsets of vaporwave, purple represents the unnatural and digital future.
+</p>
+<div class="mt-4 flex items-center text-pink-300 text-xs font-bold uppercase tracking-widest gap-1">
+View Collection <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</article>
+
+<!-- Fashion Card -->
+<article class="card-glass rounded-[2rem] p-0 overflow-hidden group relative flex flex-col cursor-pointer focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 focus-within:ring-offset-black" tabindex="0" onclick="location.href='#';">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1660585266731-8cb1b1162d70?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&amp;w=2071&amp;auto=format&amp;fit=crop')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+<div class="relative p-6 h-full flex flex-col justify-end z-10">
+<div class="mb-auto flex justify-between items-start">
+<span class="px-2 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-[10px] font-bold uppercase tracking-wider backdrop-blur-md">Fashion</span>
+<span class="material-symbols-outlined text-white/50 group-hover:text-white transition-colors">arrow_outward</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-1 leading-tight">Velvet Revolution</h3>
+<p class="text-white/60 line-clamp-2 group-hover:opacity-0 transition-opacity duration-300">How Prince and Bowie reclaimed purple as fluid identity color.</p>
+</div>
+<div class="absolute inset-0 overlay-glass opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center p-6 translate-y-4 group-hover:translate-y-0">
+<div class="size-12 rounded-full bg-indigo-500/20 text-indigo-300 flex items-center justify-center mb-3 border border-indigo-500/30">
+<span class="material-symbols-outlined">checkroom</span>
+</div>
+<h4 class="text-lg font-bold text-white mb-2">Preview</h4>
+<p class="text-white/80 font-light leading-relaxed text-sm">
+70s and 80s purple velvet and silk expressed androgyny, mystery, and artistic freedom.
+</p>
+<div class="mt-4 flex items-center text-indigo-300 text-xs font-bold uppercase tracking-widest gap-1">
+Read Article <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</article>
+
+<!-- Added Cards: Shades, Philosophy, Characters -->
+<article class="card-glass rounded-[2rem] p-0 overflow-hidden group relative flex flex-col cursor-pointer focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 focus-within:ring-offset-black" tabindex="0" onclick="location.href='#';">
+<div class="absolute inset-0 bg-[url('https://plus.unsplash.com/premium_photo-1668367779014-4a0073f7c04a?q=80&w=1114&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&amp;w=2070&amp;auto=format&amp;fit=crop')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+<div class="relative p-6 h-full flex flex-col justify-end z-10">
+<div class="mb-auto flex justify-between items-start">
+<span class="px-2 py-1 rounded-full bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 text-[10px] font-bold uppercase tracking-wider backdrop-blur-md">Shades</span>
+<span class="material-symbols-outlined text-white/50 group-hover:text-white transition-colors">arrow_outward</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-1 leading-tight">Violet Hues</h3>
+<p class="text-white/60 line-clamp-2 group-hover:opacity-0 transition-opacity duration-300">Explore the range of violet shades across cultures, art, and fashion.</p>
+</div>
+<div class="absolute inset-0 overlay-glass opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center p-6 translate-y-4 group-hover:translate-y-0">
+<div class="size-12 rounded-full bg-yellow-500/20 text-yellow-300 flex items-center justify-center mb-3 border border-yellow-500/30">
+<span class="material-symbols-outlined">color_lens</span>
+</div>
+<h4 class="text-lg font-bold text-white mb-2">Preview</h4>
+<p class="text-white/80 font-light leading-relaxed text-sm">
+Discover how different violet shades influence art, design, and human perception.
+</p>
+<div class="mt-4 flex items-center text-yellow-300 text-xs font-bold uppercase tracking-widest gap-1">
+View Shades <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</article>
+
+<article class="card-glass rounded-[2rem] p-0 overflow-hidden group relative flex flex-col cursor-pointer focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 focus-within:ring-offset-black" tabindex="0" onclick="location.href='#';">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1666379797556-05e814f9b7f7?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&amp;w=2070&amp;auto=format&amp;fit=crop')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+<div class="relative p-6 h-full flex flex-col justify-end z-10">
+<div class="mb-auto flex justify-between items-start">
+<span class="px-2 py-1 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/30 text-[10px] font-bold uppercase tracking-wider backdrop-blur-md">Philosophy</span>
+<span class="material-symbols-outlined text-white/50 group-hover:text-white transition-colors">arrow_outward</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-1 leading-tight">Purple Wisdom</h3>
+<p class="text-white/60 line-clamp-2 group-hover:opacity-0 transition-opacity duration-300">Violet symbolism in human thought, rituals, and belief systems.</p>
+</div>
+<div class="absolute inset-0 overlay-glass opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center p-6 translate-y-4 group-hover:translate-y-0">
+<div class="size-12 rounded-full bg-teal-500/20 text-teal-300 flex items-center justify-center mb-3 border border-teal-500/30">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<h4 class="text-lg font-bold text-white mb-2">Preview</h4>
+<p class="text-white/80 font-light leading-relaxed text-sm">
+Trace how purple has been used in philosophy, spirituality, and symbolic thinking through history.
+</p>
+<div class="mt-4 flex items-center text-teal-300 text-xs font-bold uppercase tracking-widest gap-1">
+Learn More <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</article>
+
+<article class="card-glass rounded-[2rem] p-0 overflow-hidden group relative flex flex-col cursor-pointer focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 focus-within:ring-offset-black" tabindex="0" onclick="location.href='#';">
+<div class="absolute inset-0 bg-[url('https://plus.unsplash.com/premium_photo-1720318290008-4fde5d433856?q=80&w=1227&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&amp;w=2070&amp;auto=format&amp;fit=crop')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+<div class="relative p-6 h-full flex flex-col justify-end z-10">
+<div class="mb-auto flex justify-between items-start">
+<span class="px-2 py-1 rounded-full bg-orange-500/20 text-orange-300 border border-orange-500/30 text-[10px] font-bold uppercase tracking-wider backdrop-blur-md">Characters</span>
+<span class="material-symbols-outlined text-white/50 group-hover:text-white transition-colors">arrow_outward</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-1 leading-tight">Violet Figures</h3>
+<p class="text-white/60 line-clamp-2 group-hover:opacity-0 transition-opacity duration-300">Influential individuals and characters associated with purple.</p>
+</div>
+<div class="absolute inset-0 overlay-glass opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center p-6 translate-y-4 group-hover:translate-y-0">
+<div class="size-12 rounded-full bg-orange-500/20 text-orange-300 flex items-center justify-center mb-3 border border-orange-500/30">
+<span class="material-symbols-outlined">people</span>
+</div>
+<h4 class="text-lg font-bold text-white mb-2">Preview</h4>
+<p class="text-white/80 font-light leading-relaxed text-sm">
+Meet artists, leaders, and fictional characters whose identities are linked to violet.
+</p>
+<div class="mt-4 flex items-center text-orange-300 text-xs font-bold uppercase tracking-widest gap-1">
+View Profiles <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</article>
+
+</div>
+<!-- GRID END -->
+
+</div>
+</main>
+
+<div class="w-full flex justify-center py-10 z-10 border-t border-white/5 bg-[#08020e] mt-auto">
+<div class="w-full max-w-[960px] px-8 flex flex-col md:flex-row gap-8 items-start justify-between">
+<div class="flex flex-col gap-4 w-full md:w-1/2">
+<div class="flex items-center gap-2">
+<div class="size-8 flex items-center justify-center">
+  <img src="assets/logo.png" alt="Logo" class="h-8 w-8" />
+</div>
+<h4 class="text-white text-lg font-bold">Amethystiee Discovery</h4>
+</div>
+<p class="text-white/50 text-sm leading-relaxed max-w-sm">
+                        Curating the finest examples of purple in nature, history, and digital art. A visual archive for the violet enthusiast.
+                    </p>
+</div>
+<div class="flex flex-col gap-4 w-full md:w-auto">
+<footer class="w-full flex justify-center py-8 z-10 border-t border-white/5 bg-[#0a0112]/80 backdrop-blur-sm">
+<div class="layout-content-container flex flex-col max-w-[960px] w-full px-8">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6">
+<p class="text-white/30 text-sm font-light">© 2026 Amethystiee By Sanduni Basnayaka - Built with obsession for purple.</p>
+<div class="flex gap-6">
+<a class="text-white/30 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">flutter_dash</span></a>
+<a class="text-white/30 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">alternate_email</span></a>
+<a class="text-white/30 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">public</span></a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</div>
+
+</div>
+</body></html>
