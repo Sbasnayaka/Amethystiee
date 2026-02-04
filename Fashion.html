@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Velvet Revolution: Fashion Showcase</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Oswald:wght@200;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7311d4",
+                        "accent-gold": "#d4af37",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#0a0112",
+                        "deep-violet": "#1a0b2e",
+                    },
+                    fontFamily: {
+                        "display": ["Oswald", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                        "body": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                    backgroundImage: {
+                        'aurora': 'radial-gradient(circle at 50% 50%, rgba(115, 17, 212, 0.15) 0%, transparent 50%)',
+                        'velvet-gradient': 'linear-gradient(to bottom, rgba(10,1,18,0.3), rgba(10,1,18,0.95))',
+                    }
+                },
+            },
+        }
+    </script>
+<style>.text-glow {
+    text-shadow: 0 0 20px rgba(168, 85, 247, 0.6), 0 0 40px rgba(115, 17, 212, 0.4)
+    }
+.text-gold-glow {
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4)
+    }
+.card-glass {
+    background: rgba(25, 12, 36, 0.4);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2)
+    }
+.card-glass:hover {
+    border-color: rgba(115, 17, 212, 0.3);
+    box-shadow: 0 0 30px rgba(115, 17, 212, 0.15)
+    }
+.stardust-bg {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDJJ-Mo17GJdV3xmGCq9OHp69Qj-GWLkgzQ5dFai2wSfVa8WLoFcBiSw0JdDVK0jjZDaotnZbrDEVSFBSPp-yvV9NmbBCuNCGQQMYFuiIyx8MMfIlOWm5jkpQLUgtlS81z3ZtSusbbYSJSyzUoSAGaGTpUAkk-7NUKBpSICG9cnqjf6P0F8p7lEhCxPR208_XpL4eoyezwEfft6pnXRhAt4tjJ1OT2Zn5l6FFLeesIeAyhcwIje1-lKRyN2RR9svjtrfvpNFuUOBU4);
+    pointer-events: none
+    }
+::-webkit-scrollbar {
+    width: 8px
+    }
+::-webkit-scrollbar-track {
+    background: #0a0112
+    }
+::-webkit-scrollbar-thumb {
+    background: #332545;
+    border-radius: 4px
+    }</style>
+</head>
+<body class="bg-background-dark text-white font-body overflow-x-hidden selection:bg-accent-gold selection:text-black">
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="stardust-bg absolute inset-0 z-[1]"></div>
+<div class="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] mix-blend-screen animate-pulse duration-[8s]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[700px] h-[700px] bg-indigo-900/20 rounded-full blur-[130px] mix-blend-screen"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[100px]"></div>
+</div>
+<div class="fixed top-0 w-full z-50 flex justify-center px-4 pt-6">
+<header class="flex items-center justify-between w-full max-w-[1100px] h-16 px-6 rounded-full border border-white/10 bg-[#130b1b]/70 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.2)]">
+<div class="flex items-center gap-3">
+<div class="size-8 text-accent-gold flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">diamond</span>
+</div>
+<span class="text-white text-lg font-bold tracking-tight font-display uppercase">Amethystiee</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-xs font-bold uppercase tracking-widest text-white/60 hover:text-accent-gold transition-colors" href="/characters">Icons</a>
+<a class="text-xs font-bold uppercase tracking-widest text-white/60 hover:text-accent-gold transition-colors" href="/shades/royal-purple">Royal Purple</a>
+<a class="text-xs font-bold uppercase tracking-widest text-white/60 hover:text-accent-gold transition-colors" href="/blog">Editorial</a>
+</nav>
+<button class="hidden md:flex items-center justify-center h-9 px-6 rounded-full border border-accent-gold/30 hover:border-accent-gold/80 text-accent-gold text-xs font-bold uppercase tracking-wider transition-all hover:shadow-[0_0_15px_rgba(212,175,55,0.3)] bg-accent-gold/5 hover:bg-accent-gold/10">
+            Shop Look
+        </button>
+<button class="md:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+</div>
+<main class="relative z-10 flex flex-col items-center w-full">
+<section class="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Abstract Purple Texture Background" class="w-full h-full object-cover opacity-60 mix-blend-overlay scale-110 blur-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2zg0tIi66N7jHKp1D-OqOHCOrgsvtf6t56RLdwRdw4oL_xiytaTqsAtecj3uMPXRuFnrErR7AZfsA-zzO4kuxI2luC5nG2rCw35LudHtai5B0CvR5q8ERWbvUur47NFlCc0oWLFRvkgPnFrPULplFAtT24zW6UCe1K7NgznaFvjoQlbAOWsxZwCoDIcJZ8Cauy8InntS0NBfMfukRs95zoBrbm42szVH4mvWAr_dz-aykgXtf4uo9-0KbBSjnFuh5yG0Q61TYwXw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/40 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-background-dark/60 via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 text-center flex flex-col items-center gap-6 max-w-4xl px-4 mt-20">
+<h1 class="text-6xl md:text-8xl lg:text-9xl font-display font-medium tracking-tighter text-white text-glow leading-[0.9]">
+                VELVET<br/><span class="text-transparent bg-clip-text bg-gradient-to-b from-white to-purple-400">REVOLUTION</span>
+</h1>
+<div class="h-px w-24 bg-accent-gold/50 my-2 shadow-[0_0_10px_rgba(212,175,55,0.8)]"></div>
+<p class="font-serif italic text-xl md:text-3xl text-white/80 font-light tracking-wide max-w-2xl">
+                "Purple is a statement — soft as velvet, bold as rebellion."
+            </p>
+<div class="mt-8 flex gap-4">
+<button class="px-8 py-3 bg-white text-black font-display font-bold uppercase tracking-widest text-sm hover:bg-gray-200 transition-colors">
+                    View Collection
+                </button>
+<button class="px-8 py-3 border border-white/30 text-white font-display font-bold uppercase tracking-widest text-sm backdrop-blur-sm hover:bg-white/10 transition-colors">
+                    Read Manifesto
+                </button>
+</div>
+</div>
+</section>
+<section class="w-full px-4 -mt-20 z-20">
+<div class="card-glass max-w-3xl mx-auto p-10 rounded-2xl text-center relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent-gold/50 to-transparent"></div>
+<p class="text-lg md:text-xl text-white/90 font-light leading-relaxed">
+                From the electric ruffles of <span class="text-accent-gold font-serif italic">Prince</span> to the glittering alien suits of <span class="text-accent-gold font-serif italic">Bowie</span>, purple has always been the uniform of the outsider. It is the color of gender fluidity, mystical power, and reshaping identity in a monochrome world.
+            </p>
+</div>
+</section>
+<section class="w-full max-w-[1100px] px-4 py-24">
+<div class="flex flex-col md:flex-row gap-8 justify-center">
+<div class="group relative w-full md:w-1/2 aspect-[4/5] md:aspect-video rounded-3xl overflow-hidden card-glass">
+<div class="absolute inset-0 bg-gradient-to-br from-purple-900/40 to-transparent mix-blend-overlay"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-30 group-hover:opacity-50 transition-opacity duration-500">
+<span class="material-symbols-outlined text-[150px] md:text-[200px] text-primary blur-sm">music_note</span>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/90 to-transparent">
+<h3 class="text-3xl font-display font-bold text-white uppercase mb-2">The Purple One</h3>
+<p class="text-white/60 text-sm font-body">Mastery of velvet &amp; lace. Redefining masculinity through amethyst hues.</p>
+</div>
+</div>
+<div class="group relative w-full md:w-1/2 aspect-[4/5] md:aspect-video rounded-3xl overflow-hidden card-glass">
+<div class="absolute inset-0 bg-gradient-to-bl from-indigo-900/40 to-transparent mix-blend-overlay"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-30 group-hover:opacity-50 transition-opacity duration-500">
+<span class="material-symbols-outlined text-[150px] md:text-[200px] text-blue-500 blur-sm">bolt</span>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/90 to-transparent">
+<h3 class="text-3xl font-display font-bold text-white uppercase mb-2">Starman</h3>
+<p class="text-white/60 text-sm font-body">Metallic lamé &amp; alien aesthetics. Purple as a signal from another world.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="w-full max-w-[1100px] px-4 mb-24">
+<div class="flex items-center gap-4 mb-10">
+<span class="h-px flex-grow bg-white/10"></span>
+<h2 class="text-2xl font-display uppercase tracking-[0.2em] text-accent-gold">Fabric of Reality</h2>
+<span class="h-px flex-grow bg-white/10"></span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="card-glass p-8 rounded-[2rem] hover:bg-white/5 transition-all duration-300 group">
+<div class="h-40 w-full rounded-xl bg-gradient-to-br from-[#2e0b4d] to-[#120524] mb-6 flex items-center justify-center shadow-inner relative overflow-hidden">
+<div class="absolute inset-0 opacity-30 bg-[url('https://www.transparenttextures.com/patterns/velvet.png')]"></div>
+<span class="material-symbols-outlined text-4xl text-white/20 group-hover:text-white/60 transition-colors">texture</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Velvet</h3>
+<p class="text-white/50 text-sm">Absorbs light, creating deep, infinite shadows. Represents luxury, royalty, and depth of character.</p>
+</div>
+<div class="card-glass p-8 rounded-[2rem] hover:bg-white/5 transition-all duration-300 group">
+<div class="h-40 w-full rounded-xl bg-gradient-to-br from-[#b19cd9] to-[#6a4c9c] mb-6 flex items-center justify-center shadow-inner relative overflow-hidden">
+<div class="absolute inset-0 opacity-30 bg-white mix-blend-overlay transform -skew-x-12 translate-x-4"></div>
+<span class="material-symbols-outlined text-4xl text-white/20 group-hover:text-white/60 transition-colors">waves</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Silk</h3>
+<p class="text-white/50 text-sm">Reflects light with a watery glow. Used for movement, ethereal pastels, and fluid silhouettes.</p>
+</div>
+<div class="card-glass p-8 rounded-[2rem] hover:bg-white/5 transition-all duration-300 group">
+<div class="h-40 w-full rounded-xl bg-gradient-to-br from-[#d4af37] to-[#800080] mb-6 flex items-center justify-center shadow-inner relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent rotate-45 transform translate-y-full group-hover:-translate-y-full transition-transform duration-1000"></div>
+<span class="material-symbols-outlined text-4xl text-white/20 group-hover:text-white/60 transition-colors">auto_awesome</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Satin &amp; Lamé</h3>
+<p class="text-white/50 text-sm">High-shine surfaces for the stage. Demands attention and radiates electric energy.</p>
+</div>
+</div>
+</section>
+<section class="w-full max-w-[1100px] px-4 mb-24">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="card-glass p-8 md:p-12 rounded-[2.5rem] relative">
+<span class="absolute top-8 right-8 text-6xl text-white/5 font-display font-bold">01</span>
+<h3 class="text-3xl font-display uppercase tracking-widest text-white mb-8">Styling <span class="text-primary">Amethyst</span></h3>
+<ul class="space-y-6">
+<li class="flex items-start gap-4 group">
+<span class="flex-shrink-0 size-8 rounded-full border border-primary/30 flex items-center justify-center text-accent-gold group-hover:bg-primary/20 transition-colors">1</span>
+<div>
+<h4 class="font-bold text-white">Start Small</h4>
+<p class="text-white/50 text-sm mt-1">A violet scarf or amethyst jewelry can introduce the vibration without overwhelming the look.</p>
+</div>
+</li>
+<li class="flex items-start gap-4 group">
+<span class="flex-shrink-0 size-8 rounded-full border border-primary/30 flex items-center justify-center text-accent-gold group-hover:bg-primary/20 transition-colors">2</span>
+<div>
+<h4 class="font-bold text-white">Monochrome Power</h4>
+<p class="text-white/50 text-sm mt-1">Mix textures (velvet pants, silk shirt) in the same purple shade for high-fashion depth.</p>
+</div>
+</li>
+<li class="flex items-start gap-4 group">
+<span class="flex-shrink-0 size-8 rounded-full border border-primary/30 flex items-center justify-center text-accent-gold group-hover:bg-primary/20 transition-colors">3</span>
+<div>
+<h4 class="font-bold text-white">Streetwear Looks</h4>
+<p class="text-white/50 text-sm mt-1">Pair oversized lavender tees with metallic or black technical fabrics.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="relative h-full min-h-[400px]">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent-gold/10 rounded-full blur-3xl"></div>
+<div class="relative w-full h-full card-glass rounded-[4rem] border border-white/20 flex flex-col items-center justify-center p-8 overflow-hidden">
+<div class="absolute top-4 left-0 w-full text-center text-xs font-bold uppercase tracking-[0.3em] text-white/30">Capsule Flatlay</div>
+<div class="grid grid-cols-2 gap-4 w-full max-w-sm rotate-3 transform hover:rotate-0 transition-transform duration-500">
+<div class="bg-indigo-900/80 rounded-2xl h-32 w-full flex items-center justify-center text-white/20 backdrop-blur-sm border border-white/5">
+<span class="material-symbols-outlined text-4xl">checkroom</span>
+</div>
+<div class="bg-purple-400/80 rounded-2xl h-32 w-full flex items-center justify-center text-white/20 backdrop-blur-sm border border-white/5 mt-8">
+<span class="material-symbols-outlined text-4xl">styler</span>
+</div>
+<div class="col-span-2 bg-gradient-to-r from-amber-700/50 to-amber-300/50 rounded-full h-16 w-3/4 mx-auto flex items-center justify-center border border-accent-gold/30">
+<span class="text-xs font-bold text-accent-gold uppercase tracking-widest">Gold Accents</span>
+</div>
+</div>
+<div class="mt-8 text-center">
+<p class="text-white text-lg font-serif italic">"The Velvet Essentials"</p>
+<p class="text-white/40 text-xs mt-2 uppercase tracking-wide">Blazer • Tee • Accessories</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="w-full max-w-[1100px] px-4 mb-24 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="p-8 rounded-3xl border border-white/5 bg-[#1a0b2e]/60 backdrop-blur-md flex flex-col justify-between hover:border-primary/40 transition-colors">
+<div>
+<span class="material-symbols-outlined text-4xl text-white mb-4">transgender</span>
+<h3 class="text-xl font-bold text-white mb-2">Blurring Lines</h3>
+<p class="text-white/60 text-sm leading-relaxed">
+                    Historically, purple was too expensive for anyone but emperors. Today, it belongs to everyone. It sits between red and blue, dismantling the binary in fashion design.
+                </p>
+</div>
+</div>
+<div class="p-8 rounded-3xl border border-white/5 bg-[#1a0b2e]/60 backdrop-blur-md flex flex-col justify-between hover:border-primary/40 transition-colors">
+<div>
+<span class="material-symbols-outlined text-4xl text-white mb-4">dry_cleaning</span>
+<h3 class="text-xl font-bold text-white mb-2">Care for Delicates</h3>
+<p class="text-white/60 text-sm leading-relaxed">
+                    Velvet and silk require respect. Dry clean only for structured velvet. Cold hand wash for silk. Never wring purple fabrics, or the fibers will break like glass.
+                </p>
+</div>
+</div>
+</section>
+</main>
+<footer class="w-full flex justify-center py-10 z-10 border-t border-white/5 bg-[#0a0112]">
+<div class="flex flex-col items-center gap-6 w-full max-w-[1100px] px-8">
+<div class="flex items-center gap-2 opacity-50">
+<span class="material-symbols-outlined text-lg">diamond</span>
+<span class="font-display font-bold uppercase tracking-wider text-sm">Amethystiee Fashion</span>
+</div>
+<div class="flex gap-8 text-xs font-bold uppercase tracking-widest text-white/30">
+<a class="hover:text-accent-gold transition-colors" href="#">Privacy</a>
+<a class="hover:text-accent-gold transition-colors" href="#">Terms</a>
+<a class="hover:text-accent-gold transition-colors" href="#">Credits</a>
+</div>
+<p class="text-white/20 text-xs font-light">© 2024 Amethystiee — Built with obsession for purple.</p>
+</div>
+</footer>
+
+</body></html>
