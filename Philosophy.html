@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Philosophy: The Space Between</title>
+<link rel="icon" href="assets/logo.png" />
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7311d4",
+                        "accent-cyan": "#06b6d4",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#05010a", 
+                        "glass-border": "rgba(255, 255, 255, 0.08)",
+                        "glass-surface": "rgba(20, 10, 30, 0.4)",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "serif": ["Cinzel", "serif"],
+                        "body": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                    backgroundImage: {
+                        'aurora': 'radial-gradient(circle at 50% 50%, rgba(115, 17, 212, 0.15) 0%, transparent 50%)',
+                        'mesh-hero': 'radial-gradient(at 0% 0%, rgba(56, 11, 110, 0.4) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(19, 8, 48, 0.8) 0px, transparent 50%)',
+                    },
+                    animation: {
+                        'scroll': 'scroll 40s linear infinite',
+                    },
+                    keyframes: {
+                        scroll: {
+                            '0%': { transform: 'translateY(0)' },
+                            '100%': { transform: 'translateY(-50%)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .text-glow {
+            text-shadow: 0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(115, 17, 212, 0.3);
+        }
+        .text-glow-cyan {
+            text-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
+        }
+        .card-border-glow {
+            box-shadow: inset 0 0 20px rgba(115, 17, 212, 0.05);
+        }
+        .card-border-glow:hover {
+            box-shadow: inset 0 0 30px rgba(115, 17, 212, 0.15), 0 0 20px rgba(115, 17, 212, 0.2);
+        }
+        .input-glow:focus {
+            box-shadow: 0 0 20px rgba(115, 17, 212, 0.3);
+        }::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0112; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #332545; 
+            border-radius: 4px;
+        }
+        textarea::-webkit-scrollbar {
+            width: 6px;
+        }
+        textarea::-webkit-scrollbar-thumb {
+            background: rgba(115, 17, 212, 0.5);
+        }
+        .glass-panel {
+            background: rgba(19, 11, 27, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .neon-border:hover {
+            border-color: rgba(6, 182, 212, 0.5);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.2), inset 0 0 10px rgba(6, 182, 212, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-white font-display overflow-x-hidden selection:bg-accent-cyan selection:text-black">
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] mix-blend-screen animate-pulse duration-[10s]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[700px] h-[700px] bg-accent-cyan/10 rounded-full blur-[130px] mix-blend-screen"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-primary/5 rounded-full blur-[100px]"></div>
+<div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(rgba(255,255,255,0.8) 1px, transparent 1px); background-size: 60px 60px;"></div>
+</div>
+<div class="relative z-10 flex flex-col min-h-screen">
+<div class="w-full flex justify-center px-4 pt-6 fixed top-0 z-50">
+<header class="flex items-center justify-between w-full max-w-[960px] h-16 px-6 rounded-full border border-white/10 bg-[#130b1b]/60 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+<div class="flex items-center gap-3">
+<div class="size-8 flex items-center justify-center">
+  <img src="assets/logo.png" alt="Logo" class="h-8 w-8" />
+</div>
+<span class="text-white text-lg font-bold tracking-tight">Amethystiee</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" href="index.html">Home</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" href="discovery.html">Discovery</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" href="shade.html">Spectral</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" href="origin.html">Origins</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" href="me.html">Me</a>
+</nav>
+<button class="hidden md:flex items-center justify-center h-9 px-5 rounded-full bg-primary hover:bg-primary/90 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(115,17,212,0.4)] hover:shadow-[0_0_25px_rgba(115,17,212,0.6)] focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#130b1b]">
+                    ⋆˚꩜｡
+                </button>
+<button class="md:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+</div>
+<main class="flex-grow flex flex-col items-center justify-start pt-32 pb-20 px-4 md:px-8 gap-24">
+<div class="w-full max-w-[1000px] flex flex-col items-center text-center gap-8 relative">
+<div class="absolute inset-0 bg-mesh-hero blur-3xl rounded-full opacity-40 pointer-events-none"></div>
+<div class="relative z-10 flex flex-col gap-6">
+<h1 class="text-5xl md:text-7xl lg:text-8xl font-thin tracking-tight text-white leading-[1.1] drop-shadow-[0_0_25px_rgba(168,85,247,0.4)]">
+                        Purple is the<br/>
+<span class="font-light text-transparent bg-clip-text bg-gradient-to-r from-purple-200 via-white to-accent-cyan">space between.</span>
+</h1>
+<p class="text-lg md:text-xl font-light text-white/70 max-w-2xl mx-auto leading-relaxed mt-4">
+                        It is the threshold where opposites meet. How can two different things make something new and whole?
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 mt-6 justify-center">
+<button class="px-8 py-3 rounded-full bg-white text-primary font-bold hover:bg-gray-100 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                            Reflect
+                        </button>
+<button class="px-8 py-3 rounded-full bg-glass-surface border border-white/20 text-white font-medium hover:bg-white/10 hover:border-white/40 transition-all backdrop-blur-md">
+                            Read Essay
+                        </button>
+<button class="px-8 py-3 rounded-full bg-transparent border border-accent-cyan/50 text-accent-cyan font-medium hover:bg-accent-cyan/10 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)] transition-all">
+                            Try Thought Experiment
+                        </button>
+</div>
+</div>
+</div>
+<section class="w-full max-w-4xl relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary/20 via-transparent to-accent-cyan/20 rounded-[2.5rem] blur-xl opacity-40 group-hover:opacity-60 transition duration-1000"></div>
+<div class="relative p-10 md:p-16 rounded-[2rem] glass-panel flex flex-col items-center text-center gap-8 shadow-2xl">
+<span class="material-symbols-outlined text-4xl text-accent-cyan/50">auto_stories</span>
+<div class="space-y-6 text-lg md:text-xl font-light leading-loose text-white/90 font-serif">
+<p>
+                            "Purple lives at the edge of things. It is the color of twilight, that brief, magical moment when the day has ended but the night has not yet begun. It occupies the borderlands of the spectrum, vibrating with a frequency that is both visible and elusive."
+                        </p>
+<p class="text-white/70">
+                            "In the natural world, it is rare. It hides in the deep ocean, in the petals of delicate flowers, and in the bruising of storms. It does not shout like red or calm like blue; it observes."
+                        </p>
+<p>
+                            "To embrace purple is to embrace the middle path. It is the synthesis of passion and peace, the alchemical marriage of the active and the passive. It asks us to hold two opposing truths in our minds at once without conflict."
+                        </p>
+<p class="text-white/70">
+                            "Ultimately, purple is a lesson in harmony. It teaches us that we do not have to choose sides. We can exist in the nuances, in the gradients, in the beautiful complexity where things blend instead of compete."
+                        </p>
+</div>
+<div class="w-20 h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full mt-4"></div>
+</div>
+</section>
+<section class="w-full max-w-[1100px] flex flex-col gap-8">
+<div class="w-full flex flex-col items-center gap-6 py-6 glass-panel rounded-3xl border border-white/5 bg-white/[0.02]">
+<h2 class="text-2xl font-serif text-white tracking-wider">Purple as a Symbol of Balance</h2>
+<div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 w-full max-w-2xl">
+<div class="text-center group">
+<div class="text-xs uppercase tracking-widest text-red-400 font-bold mb-2 group-hover:text-red-300 transition-colors">Red attributes</div>
+<p class="text-white/60 font-light text-sm">Passion • Heat • Urgency • Power</p>
+</div>
+<div class="w-px h-12 bg-white/10 hidden md:block"></div>
+<div class="text-center group">
+<div class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-2 group-hover:text-blue-300 transition-colors">Blue attributes</div>
+<p class="text-white/60 font-light text-sm">Calm • Logic • Peace • Stability</p>
+</div>
+</div>
+<p class="text-white/40 text-sm italic">Where do you fall on this spectrum today?</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto lg:h-[500px]">
+<div class="lg:col-span-8 h-full flex flex-col relative rounded-3xl overflow-hidden glass-panel p-8 border border-white/10">
+<div class="absolute top-0 right-0 p-6 opacity-20 text-9xl font-serif text-primary -z-10 select-none">?</div>
+<div class="mb-6">
+<h2 class="text-3xl font-light text-white mb-2">Identity &amp; the Color Purple</h2>
+<p class="text-white/60 font-light">
+                            Small exercise: If you were a shade of purple, what ratio of red (passion) to blue (calm) would you be right now? Describe your texture.
+                        </p>
+<span class="inline-block mt-2 text-xs font-bold text-accent-cyan bg-accent-cyan/10 px-2 py-1 rounded">5-MIN JOURNAL</span>
+</div>
+<div class="flex-grow relative rounded-xl bg-[#0f0816]/60 border border-primary/30 p-1 backdrop-blur-sm">
+<textarea class="w-full h-full bg-transparent border-none text-white placeholder-white/20 focus:ring-0 resize-none p-4 font-light text-lg rounded-lg transition-shadow" placeholder="I feel 60% red because..."></textarea>
+<div class="absolute bottom-4 right-4 flex gap-2">
+<button class="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wide text-white/50 hover:text-white transition-colors">Save Draft</button>
+<button class="size-10 rounded-full bg-primary flex items-center justify-center text-white hover:bg-white hover:text-primary transition-colors shadow-[0_0_15px_rgba(115,17,212,0.5)]">
+<span class="material-symbols-outlined text-lg">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 h-full flex flex-col gap-4">
+<div class="flex-1 rounded-3xl glass-panel p-6 border border-white/5 hover:border-accent-cyan/40 hover:bg-white/[0.03] transition-all cursor-pointer group flex flex-col justify-center">
+<div class="size-10 rounded-full bg-white/5 flex items-center justify-center mb-3 group-hover:text-accent-cyan transition-colors">
+<span class="material-symbols-outlined">palette</span>
+</div>
+<h3 class="text-xl font-medium text-white group-hover:text-accent-cyan transition-colors">The Two-Paint Problem</h3>
+<p class="text-white/40 text-sm mt-2">How to mix without losing the source?</p>
+</div>
+<div class="flex-1 rounded-3xl glass-panel p-6 border border-white/5 hover:border-accent-cyan/40 hover:bg-white/[0.03] transition-all cursor-pointer group flex flex-col justify-center">
+<div class="size-10 rounded-full bg-white/5 flex items-center justify-center mb-3 group-hover:text-accent-cyan transition-colors">
+<span class="material-symbols-outlined">card_giftcard</span>
+</div>
+<h3 class="text-xl font-medium text-white group-hover:text-accent-cyan transition-colors">The Purple Gift</h3>
+<p class="text-white/40 text-sm mt-2">What emotion is inside the box?</p>
+</div>
+</div>
+</div>
+</section>
+<section class="w-full max-w-[1100px]">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="flex flex-col items-center text-center p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 transition-all hover:-translate-y-2 duration-500 group neon-border">
+<div class="size-12 rounded-full bg-white/5 flex items-center justify-center text-white/70 mb-6 group-hover:text-accent-cyan group-hover:shadow-[0_0_15px_rgba(6,182,212,0.4)] transition-all">
+<span class="material-symbols-outlined">history_edu</span>
+</div>
+<h3 class="text-xl font-medium text-white mb-3 font-serif">Lavender Breath</h3>
+<p class="text-white/50 font-light text-sm leading-relaxed italic">
+                            Soft inhale of morning mist,<br/>
+                            before the sun demands<br/>
+                            its golden price.<br/>
+                            A gentle reminder that softness<br/>
+                            is a kind of strength.
+                        </p>
+</div>
+<div class="flex flex-col items-center text-center p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 transition-all hover:-translate-y-2 duration-500 group neon-border">
+<div class="size-12 rounded-full bg-white/5 flex items-center justify-center text-white/70 mb-6 group-hover:text-accent-cyan group-hover:shadow-[0_0_15px_rgba(6,182,212,0.4)] transition-all">
+<span class="material-symbols-outlined">diamond</span>
+</div>
+<h3 class="text-xl font-medium text-white mb-3 font-serif">Amethyst Nights</h3>
+<p class="text-white/50 font-light text-sm leading-relaxed italic">
+                            Hard edges of a gem<br/>
+                            reflecting a moon that<br/>
+                            isn't really there.<br/>
+                            The deep indigo of the soul<br/>
+                            where silence speaks.
+                        </p>
+</div>
+<div class="flex flex-col items-center text-center p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 transition-all hover:-translate-y-2 duration-500 group neon-border">
+<div class="size-12 rounded-full bg-white/5 flex items-center justify-center text-white/70 mb-6 group-hover:text-accent-cyan group-hover:shadow-[0_0_15px_rgba(6,182,212,0.4)] transition-all">
+<span class="material-symbols-outlined">highlight</span>
+</div>
+<h3 class="text-xl font-medium text-white mb-3 font-serif">Violet Door</h3>
+<p class="text-white/50 font-light text-sm leading-relaxed italic">
+                            A threshold you only<br/>
+                            cross when you stop<br/>
+                            looking for the key.<br/>
+                            A portal of light and shadow<br/>
+                            inviting you inward.
+                        </p>
+</div>
+</div>
+</section>
+<section class="w-full max-w-[1100px] flex flex-col gap-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="group p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-accent-cyan/40 hover:bg-white/[0.06] transition-all cursor-pointer">
+<div class="flex justify-between items-center mb-2">
+<h4 class="text-lg font-medium text-white group-hover:text-accent-cyan transition-colors">Creativity vs Automation</h4>
+<span class="material-symbols-outlined text-white/20 group-hover:text-accent-cyan/70 group-hover:rotate-45 transition-all">add</span>
+</div>
+<p class="text-white/40 text-sm font-light h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 overflow-hidden transition-all duration-300">Can a machine dream in color? Or is the chaotic blend of inspiration purely human?</p>
+</div>
+<div class="group p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-accent-cyan/40 hover:bg-white/[0.06] transition-all cursor-pointer">
+<div class="flex justify-between items-center mb-2">
+<h4 class="text-lg font-medium text-white group-hover:text-accent-cyan transition-colors">Rarity, Value, and Desire</h4>
+<span class="material-symbols-outlined text-white/20 group-hover:text-accent-cyan/70 group-hover:rotate-45 transition-all">add</span>
+</div>
+<p class="text-white/40 text-sm font-light h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 overflow-hidden transition-all duration-300">Why was purple the color of kings? Because scarcity creates a myth of divinity.</p>
+</div>
+<div class="group p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-accent-cyan/40 hover:bg-white/[0.06] transition-all cursor-pointer">
+<div class="flex justify-between items-center mb-2">
+<h4 class="text-lg font-medium text-white group-hover:text-accent-cyan transition-colors">Power and Softness</h4>
+<span class="material-symbols-outlined text-white/20 group-hover:text-accent-cyan/70 group-hover:rotate-45 transition-all">add</span>
+</div>
+<p class="text-white/40 text-sm font-light h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 overflow-hidden transition-all duration-300">The velvet glove over the iron fist. Ruling not by force, but by profound presence.</p>
+</div>
+<div class="group p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-accent-cyan/40 hover:bg-white/[0.06] transition-all cursor-pointer">
+<div class="flex justify-between items-center mb-2">
+<h4 class="text-lg font-medium text-white group-hover:text-accent-cyan transition-colors">Identity as Blend</h4>
+<span class="material-symbols-outlined text-white/20 group-hover:text-accent-cyan/70 group-hover:rotate-45 transition-all">add</span>
+</div>
+<p class="text-white/40 text-sm font-light h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 overflow-hidden transition-all duration-300">We are never just one thing; we are the gradient between who we were and who we are becoming.</p>
+</div>
+</div>
+</section>
+<section class="w-full max-w-[1100px] flex flex-col md:flex-row gap-8">
+<div class="flex flex-col w-full md:w-2/3 gap-6">
+<div class="relative p-8 rounded-[2rem] bg-gradient-to-br from-[#1a1225]/80 to-black/80 border border-white/10 shadow-2xl overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-accent-cyan/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2"></div>
+<div class="relative z-10 flex flex-col gap-6">
+<div>
+<h3 class="text-2xl font-light tracking-wide text-white mb-1">Two-Word Poem</h3>
+<p class="text-white/50 text-sm">Input opposites to generate synthesis.</p>
+</div>
+<div class="flex items-center gap-3">
+<input class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:border-red-400 focus:ring-1 focus:ring-red-400/50 transition-all text-sm" placeholder="Warm Word" type="text"/>
+<span class="text-white/30 font-serif text-xl">+</span>
+<input class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:border-blue-400 focus:ring-1 focus:ring-blue-400/50 transition-all text-sm" placeholder="Cool Word" type="text"/>
+</div>
+<button class="w-full py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-accent-cyan/50 text-white text-sm font-medium tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-2 group">
+<span>Generate Line</span>
+<span class="material-symbols-outlined text-sm group-hover:text-accent-cyan">auto_awesome</span>
+</button>
+</div>
+</div>
+<div class="p-8 rounded-[2rem] bg-glass-surface border border-white/10 flex items-center justify-between relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-700"></div>
+<div class="relative z-10">
+<h3 class="text-xl font-light text-white">Color Meditation</h3>
+<p class="text-white/50 text-xs mt-1">Breathe in violet, breathe out grey.</p>
+</div>
+<button class="relative z-10 flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent-cyan/10 border border-accent-cyan/30 text-accent-cyan text-xs font-bold uppercase tracking-wider hover:bg-accent-cyan hover:text-black transition-all shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+<span class="material-symbols-outlined text-sm">self_improvement</span>
+<span>Begin</span>
+</button>
+</div>
+</div>
+<div class="w-full md:w-1/3 rounded-[2rem] bg-white/[0.02] border border-white/10 p-6 flex flex-col overflow-hidden relative">
+<div class="flex items-center gap-2 mb-4 relative z-10">
+<span class="material-symbols-outlined text-accent-cyan">all_inclusive</span>
+<h3 class="text-lg font-medium text-white">Purple Thoughts</h3>
+</div>
+<div class="relative flex-grow overflow-hidden mask-gradient-y h-[300px] md:h-auto">
+<div class="absolute inset-0 z-20 pointer-events-none bg-gradient-to-b from-[#0a0112] via-transparent to-[#0a0112] opacity-80"></div>
+<div class="flex flex-col gap-4 animate-scroll py-4">
+<div class="p-4 rounded-xl bg-white/5 border border-white/5 text-sm text-white/70 italic">
+                            "I realized my anger was just passion with nowhere to go."
+                        </div>
+<div class="p-4 rounded-xl bg-white/5 border border-white/5 text-sm text-white/70 italic">
+                            "The night sky isn't black, it's very deep purple."
+                        </div>
+<div class="p-4 rounded-xl bg-white/5 border border-white/5 text-sm text-white/70 italic">
+                            "Finding peace in the gray area."
+                        </div>
+<div class="p-4 rounded-xl bg-white/5 border border-white/5 text-sm text-white/70 italic">
+                            "Red + Blue = &lt;3"
+                        </div>
+<div class="p-4 rounded-xl bg-white/5 border border-white/5 text-sm text-white/70 italic">
+                            "Why do we fear the unknown?"
+                        </div>
+<div class="p-4 rounded-xl bg-white/5 border border-white/5 text-sm text-white/70 italic">
+                            "Amethyst heals the mind."
+                        </div>
+<div class="p-4 rounded-xl bg-white/5 border border-white/5 text-sm text-white/70 italic">
+                            "I realized my anger was just passion with nowhere to go."
+                        </div>
+<div class="p-4 rounded-xl bg-white/5 border border-white/5 text-sm text-white/70 italic">
+                            "The night sky isn't black, it's very deep purple."
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<div class="w-full max-w-[800px] flex flex-col items-center text-center gap-6 mt-12 mb-8">
+<p class="text-white/70 text-lg font-light italic">"Purple does not rush you. It waits for you to find the center."</p>
+<button class="px-8 py-3 rounded-full bg-white text-primary font-bold hover:bg-gray-100 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                    Write your own purple thought
+                </button>
+</div>
+</main>
+<footer class="w-full flex justify-center py-8 z-10 border-t border-white/5 bg-[#0a0112]/80 backdrop-blur-sm">
+<div class="layout-content-container flex flex-col max-w-[960px] w-full px-8">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6">
+<p class="text-white/30 text-sm font-light">© 2026 Amethystiee By Sanduni Basnayaka - Built with obsession for purple.</p>
+<div class="flex gap-6">
+<a class="text-white/30 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">flutter_dash</span></a>
+<a class="text-white/30 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">alternate_email</span></a>
+<a class="text-white/30 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">public</span></a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
