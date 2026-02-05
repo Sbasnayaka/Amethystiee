@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Purple Canvas: Artistic Suite</title>
+<link rel="icon" href="assets/logo.png" />
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#7311d4",
+          "background-light": "#f7f6f8",
+          "background-dark": "#191022",
+          "surface-dark": "#2d1b3e",
+        },
+        fontFamily: {
+          "display": ["Space Grotesk", "sans-serif"]
+        },
+        borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+        backgroundImage: {
+          'stardust': "radial-gradient(circle at 50% 50%, rgba(115, 17, 212, 0.15) 0%, rgba(25, 16, 34, 0) 50%)",
+        }
+      },
+    },
+  }
+</script>
+<style>
+  /* Custom scrollbar for webkit */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: #191022; }
+  ::-webkit-scrollbar-thumb { background: #473b54; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #7311d4; }
+
+  /* Range Slider Styling */
+  input[type=range] { -webkit-appearance: none; background: transparent; }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; height: 16px; width: 16px; border-radius: 50%;
+    background: #ffffff; cursor: pointer;
+    box-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(115,17,212,0.5);
+    margin-top: -6px;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%; height: 4px; cursor: pointer; background: rgba(255,255,255,0.2); border-radius: 2px;
+  }
+
+  /* Neon Glow Utility */
+  .neon-text { text-shadow: 0 0 10px rgba(115, 17, 212, 0.7); }
+  .neon-box { box-shadow: 0 0 15px rgba(115, 17, 212, 0.3), inset 0 0 10px rgba(115, 17, 212, 0.1); }
+
+  /* Stardust Background Animation */
+  .stars {
+    background-image:
+      radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    opacity: 0.3;
+    animation: twinkle 5s infinite;
+  }
+  @keyframes twinkle { 0%{opacity:0.3}50%{opacity:0.5}100%{opacity:0.3} }
+
+  /* Make sure canvas covers the drawing area */
+  canvas.purple-canvas {
+    position: absolute; inset: 0; width: 100%; height: 100%; display: block;
+    z-index: 15; touch-action: none; cursor: crosshair;
+  }
+</style>
+</head>
+<body class="bg-background-dark text-white font-display overflow-hidden h-screen w-full flex flex-col relative">
+  <!-- Background Layers -->
+  <div class="absolute inset-0 bg-stardust pointer-events-none"></div>
+  <div class="absolute inset-0 stars pointer-events-none"></div>
+
+  <!-- ===== Fixed Top Navigation (paste this at top) ===== -->
+  <div class="w-full flex justify-center px-4 pt-4 fixed top-0 z-50 pointer-events-auto">
+    <header class="flex items-center justify-between w-full max-w-[960px] h-16 px-6 rounded-full border border-white/10 bg-[#130b1b]/60 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+      <div class="flex items-center gap-3">
+        <div class="size-8 flex items-center justify-center">
+          <img src="assets/logo.png" alt="Logo" class="h-8 w-8" />
+        </div>
+        <span class="text-white text-lg font-bold tracking-tight">Amethystiee</span>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a class="text-sm font-medium text-white/70 hover:text-white transition-colors" href="index.html">Home</a>
+        <a class="text-sm font-medium text-white/70 hover:text-white transition-colors" href="discovery.html">Discovery</a>
+        <a class="text-sm font-medium text-white/70 hover:text-white transition-colors" href="shade.html">Spectral</a>
+        <a class="text-sm font-medium text-white/70 hover:text-white transition-colors" href="origin.html">Origins</a>
+        <a class="text-sm font-medium text-white/70 hover:text-white transition-colors" href="me.html">Me</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <button onclick="window.location.href='shh.html'" class="hidden md:flex items-center justify-center h-9 px-5 rounded-full bg-primary hover:bg-primary/90 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(115,17,212,0.4)] hover:shadow-[0_0_25px_rgba(115,17,212,0.6)] focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#130b1b]">
+                    ⋆˚꩜｡
+                </button>
+        <button class="md:hidden text-white">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </header>
+  </div>
+  <!-- ===== end fixed nav ===== -->
+
+  <!-- Main content wrapper (add top padding so fixed nav doesn't overlap) -->
+  <div class="relative z-10 flex flex-col h-full w-full pt-24 p-6 gap-6 items-center">
+    <!-- Floating Glass Header -->
+    <header class="w-full max-w-[1200px] shrink-0">
+      <div class="relative w-full rounded-full bg-surface-dark/40 backdrop-blur-xl border border-white/10 shadow-lg shadow-black/20 p-2 pr-3 flex flex-wrap items-center justify-between gap-4 transition-all duration-300">
+        <!-- Left: Title -->
+        <div class="flex items-center pl-6 pr-4 shrink-0">
+          <h1 class="text-xl font-bold tracking-tight text-white neon-text">Purple Canvas</h1>
+        </div>
+
+        <!-- Center: Tools (Hidden on very small screens, scrollable or wrapped) -->
+        <div class="flex items-center gap-6 overflow-x-auto hide-scrollbar px-2 grow justify-center border-l border-white/5 pl-6">
+          <!-- Color Swatches -->
+          <div class="flex gap-3 items-center shrink-0">
+            <label class="group relative size-8 cursor-pointer rounded-full border border-white/20 transition-transform hover:scale-110" style="background-color: rgb(230, 230, 250);">
+              <input class="invisible absolute" data-alt="Lavender color swatch" name="color-picker" type="radio"/>
+            </label>
+            <label class="group relative size-8 cursor-pointer rounded-full border border-white/20 transition-transform hover:scale-110" style="background-color: rgb(216, 191, 216);">
+              <input class="invisible absolute" data-alt="Soft purple color swatch" name="color-picker" type="radio"/>
+            </label>
+            <label class="group relative size-8 cursor-pointer rounded-full border border-white/20 transition-transform hover:scale-110" style="background-color: rgb(115, 17, 212);">
+              <input checked class="invisible absolute" data-alt="Vivid purple color swatch" name="color-picker" type="radio"/>
+            </label>
+            <label class="group relative size-8 cursor-pointer rounded-full border border-white/20 transition-transform hover:scale-110" style="background-color: rgb(46, 2, 73);">
+              <input class="invisible absolute" data-alt="Deep violet color swatch" name="color-picker" type="radio"/>
+            </label>
+          </div>
+
+          <div class="h-8 w-px bg-white/10 shrink-0"></div>
+
+          <!-- Brush Size -->
+          <div class="flex items-center gap-3 shrink-0 w-32 group">
+            <span class="material-symbols-outlined text-white/50 text-sm">brush</span>
+            <input id="brushSize" class="w-full h-1 bg-white/20 rounded-lg appearance-none cursor-pointer" max="80" min="1" type="range" value="20"/>
+          </div>
+
+          <div class="h-8 w-px bg-white/10 shrink-0"></div>
+
+          <!-- Modes -->
+          <div class="flex gap-2 items-center shrink-0">
+            <button id="btnNeon" class="relative px-4 py-1.5 rounded-full bg-primary/20 text-primary border border-primary/30 text-xs font-bold uppercase tracking-wider hover:bg-primary/30 hover:shadow-[0_0_15px_rgba(115,17,212,0.4)] transition-all flex items-center gap-2" aria-pressed="false">
+              <span class="size-1.5 rounded-full bg-primary animate-pulse"></span>
+              Neon
+            </button>
+            <button id="btnGlitter" class="px-4 py-1.5 rounded-full bg-white/5 text-white/70 border border-white/5 text-xs font-bold uppercase tracking-wider hover:bg-white/10 hover:text-white transition-all" aria-pressed="false">
+              Glitter
+            </button>
+            <button id="btnGlassy" class="px-4 py-1.5 rounded-full bg-white/5 text-white/70 border border-white/5 text-xs font-bold uppercase tracking-wider hover:bg-white/10 hover:text-white transition-all" aria-pressed="false">
+              Glassy
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Actions -->
+        <div class="flex items-center gap-2 border-l border-white/5 pl-4 shrink-0">
+          <button id="btnUndo" class="p-2 text-white/70 hover:text-white hover:bg-white/5 rounded-full transition-colors" title="Undo">
+            <span class="material-symbols-outlined text-[20px]">undo</span>
+          </button>
+          <button id="btnClear" class="p-2 text-white/70 hover:text-red-400 hover:bg-white/5 rounded-full transition-colors mr-2" title="Clear Canvas">
+            <span class="material-symbols-outlined text-[20px]">delete</span>
+          </button>
+          <button id="btnSave" class="flex items-center justify-center gap-2 rounded-full h-9 bg-gradient-to-r from-primary to-[#9d4edd] text-white text-sm font-bold tracking-wide px-5 shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:scale-105 transition-all">
+            <span class="material-symbols-outlined text-[18px]">save</span>
+            <span>Save</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Drawing Area -->
+    <main class="flex-1 w-full max-w-[1400px] h-full relative group">
+      <div class="absolute inset-0 bg-black rounded-[2rem] border border-white/10 shadow-2xl overflow-hidden cursor-crosshair">
+        <!-- Interactive canvas injected here -->
+        <div id="drawingContainer" class="w-full h-full relative">
+          <!-- Glassy Overlay (Conditional) -->
+          <div id="glassyOverlay" class="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none opacity-50 mix-blend-overlay z-20"></div>
+
+          <!-- Decorative SVG (hidden once canvas injected) -->
+          <svg id="decorSvg" class="w-full h-full absolute inset-0 pointer-events-none z-10" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter height="200%" id="neon-glow" width="200%" x="-50%" y="-50%">
+                <feGaussianBlur result="coloredBlur" stdDeviation="5"></feGaussianBlur>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"></feMergeNode>
+                  <feMergeNode in="SourceGraphic"></feMergeNode>
+                </feMerge>
+              </filter>
+            </defs>
+            <path class="opacity-90" d="M 150 400 Q 300 100 600 350 T 1000 300" fill="none" filter="url(#neon-glow)" stroke="#a855f7" stroke-linecap="round" stroke-width="8"></path>
+            <path class="opacity-80" d="M 650 450 Q 750 250 900 450" fill="none" filter="url(#neon-glow)" stroke="#7311d4" stroke-linecap="round" stroke-width="12"></path>
+            <circle class="animate-pulse" cx="200" cy="350" fill="white" r="2"></circle>
+            <circle class="animate-pulse" cx="250" cy="280" fill="white" r="1.5" style="animation-delay: 0.2s"></circle>
+          </svg>
+
+          <!-- Empty State / Watermark -->
+          <div class="absolute bottom-6 right-8 pointer-events-none select-none">
+            <p class="text-white/10 text-6xl font-bold tracking-tighter mix-blend-screen">CANVAS</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative Glow behind canvas -->
+      <div class="absolute -inset-1 bg-gradient-to-r from-primary/20 via-purple-500/10 to-blue-500/10 rounded-[2.2rem] blur-2xl -z-10 opacity-60"></div>
+    </main>
+
+    <!-- Footer / Status Bar -->
+    <div class="w-full max-w-[1200px] flex justify-between px-4 pb-2 text-xs text-white/30 font-medium">
+      <div class="flex gap-4">
+        <span id="coordX">x: 0px</span>
+        <span id="coordY">y: 0px</span>
+      </div>
+      <div class="flex gap-4 items-center">
+        <span class="flex items-center gap-1"><span class="size-1.5 bg-green-500 rounded-full"></span> Ready</span>
+        <span>Zoom 100%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Footer -->
+  <footer class="w-full flex justify-center py-8 z-10 border-t border-white/5 bg-[#0a0112]/80 backdrop-blur-sm">
+    <div class="layout-content-container flex flex-col max-w-[960px] w-full px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <p class="text-white/30 text-sm font-light">© 2026 Amethystiee By Sanduni Basnayaka - Built with obsession for purple.</p>
+        <div class="flex gap-6">
+          <a class="text-white/30 hover:text-primary transition-colors" href="https://github.com/Sbasnayaka/Amethystiee.git"><span class="material-symbols-outlined text-xl">code</span></a>
+          <a class="text-white/30 hover:text-primary transition-colors" href="mailto:Itsmesanduni@icloud.com"><span class="material-symbols-outlined text-xl">alternate_email</span></a>
+          <a class="text-white/30 hover:text-primary transition-colors" href="https://www.linkedin.com/in/s-basnayaka"><span class="material-symbols-outlined text-xl">work</span></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= JavaScript (canvas + controls) ================= -->
+  <script>
+  /* Interactive functions for Purple Canvas
+     - Injects canvas into #drawingContainer
+     - Wire up color swatches, brush size, neon/glitter/glassy toggles
+     - Pointer drawing supporting mouse & touch (pointer events)
+     - Undo (history), Clear, Save (composite overlay)
+  */
+
+  /* Utility helpers */
+  function rgbToHex(rgb) {
+    const m = rgb.match(/(\d+),\s*(\d+),\s*(\d+)/);
+    if (!m) return '#A67BFF';
+    const r = parseInt(m[1]).toString(16).padStart(2,'0');
+    const g = parseInt(m[2]).toString(16).padStart(2,'0');
+    const b = parseInt(m[3]).toString(16).padStart(2,'0');
+    return '#' + r + g + b;
+  }
+  function lighten(hex, amt = 0.12) {
+    const c = hex.replace('#','');
+    const r = Math.min(255, Math.round(parseInt(c.substring(0,2),16) * (1+amt)));
+    const g = Math.min(255, Math.round(parseInt(c.substring(2,4),16) * (1+amt)));
+    const b = Math.min(255, Math.round(parseInt(c.substring(4,6),16) * (1+amt)));
+    return `rgb(${r},${g},${b})`;
+  }
+
+  /* Main app */
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('drawingContainer');
+    const decorSvg = document.getElementById('decorSvg');
+    const glassyOverlay = document.getElementById('glassyOverlay');
+
+    // inject canvas
+    const canvas = document.createElement('canvas');
+    canvas.className = 'purple-canvas';
+    canvas.id = 'drawCanvas';
+    container.insertBefore(canvas, decorSvg); // put canvas above svg (svg is decorative)
+    // hide the decorative svg now that we have an interactive canvas
+    decorSvg.style.display = 'none';
+
+    const ctx = canvas.getContext('2d');
+    let dpr = Math.max(1, window.devicePixelRatio || 1);
+
+    // Controls
+    const colorInputs = Array.from(document.querySelectorAll('input[name="color-picker"]'));
+    const brushSizeInput = document.getElementById('brushSize');
+    const btnNeon = document.getElementById('btnNeon');
+    const btnGlitter = document.getElementById('btnGlitter');
+    const btnGlassy = document.getElementById('btnGlassy');
+    const btnUndo = document.getElementById('btnUndo');
+    const btnClear = document.getElementById('btnClear');
+    const btnSave = document.getElementById('btnSave');
+    const coordX = document.getElementById('coordX');
+    const coordY = document.getElementById('coordY');
+
+    // State
+    let color = '#7311d4'; // default (will be updated from checked swatch)
+    let brushSize = Number(brushSizeInput.value || 20);
+    let neon = false;
+    let glitter = false;
+    let glassy = false;
+    let drawing = false;
+    let lastPos = null;
+    const history = [];
+    const MAX_HISTORY = 12;
+
+    // sizing helpers
+    function resizeCanvas() {
+      const rect = container.getBoundingClientRect();
+      const w = Math.max(200, Math.floor(rect.width));
+      const h = Math.max(200, Math.floor(rect.height));
+      const oldData = canvas.toDataURL();
+      dpr = Math.max(1, window.devicePixelRatio || 1);
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      canvas.style.width = w + 'px';
+      canvas.style.height = h + 'px';
+      ctx.setTransform(1,0,0,1,0,0);
+      ctx.scale(dpr, dpr);
+      ctx.fillStyle = '#000';
+      ctx.fillRect(0, 0, w, h);
+      const img = new Image();
+      img.onload = () => { ctx.drawImage(img, 0, 0, w, h); };
+      img.src = oldData;
+    }
+    // initial resize
+    resizeCanvas();
+    window.addEventListener('resize', () => {
+      clearTimeout(window.__pv_resize_timeout);
+      window.__pv_resize_timeout = setTimeout(resizeCanvas, 80);
+    });
+
+    // Read initial color from checked input
+    function readSelectedColor() {
+      const checked = colorInputs.find(i => i.checked) || colorInputs[0];
+      if (!checked) return '#7311d4';
+      const label = checked.closest('label');
+      if (!label) return '#7311d4';
+      const bg = getComputedStyle(label).backgroundColor;
+      return rgbToHex(bg);
+    }
+    color = readSelectedColor();
+
+    // wire color swatches
+    colorInputs.forEach(inp => {
+      const label = inp.closest('label');
+      if (label) label.tabIndex = 0;
+      inp.addEventListener('change', () => { color = readSelectedColor(); });
+      if (label) {
+        label.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            inp.checked = true;
+            inp.dispatchEvent(new Event('change'));
+            e.preventDefault();
+          }
+        });
+      }
+    });
+
+    // brush size
+    brushSizeInput.addEventListener('input', (e) => { brushSize = Number(e.target.value); });
+
+    // toggle helpers - update aria and visual hint
+    function updateToggleButton(btn, state) {
+      btn.setAttribute('aria-pressed', !!state);
+      if (state) {
+        btn.classList.add('bg-primary/40', 'text-white', 'shadow-[0_0_15px_rgba(115,17,212,0.25)]');
+      } else {
+        btn.classList.remove('bg-primary/40', 'text-white', 'shadow-[0_0_15px_rgba(115,17,212,0.25)]');
+      }
+    }
+
+    btnNeon.addEventListener('click', () => { neon = !neon; updateToggleButton(btnNeon, neon); });
+    btnGlitter.addEventListener('click', () => { glitter = !glitter; updateToggleButton(btnGlitter, glitter); });
+    btnGlassy.addEventListener('click', () => {
+      glassy = !glassy;
+      updateToggleButton(btnGlassy, glassy);
+      glassyOverlay.style.display = glassy ? 'block' : 'none';
+    });
+
+    // history functions
+    function pushHistory() {
+      try {
+        if (history.length >= MAX_HISTORY) history.shift();
+        history.push(canvas.toDataURL());
+      } catch (err) { console.warn('Push history failed', err); }
+    }
+    function undo() {
+      if (!history.length) {
+        ctx.fillStyle = '#000';
+        const rect = container.getBoundingClientRect();
+        ctx.fillRect(0, 0, rect.width, rect.height);
+        return;
+      }
+      const data = history.pop();
+      const img = new Image();
+      img.onload = () => {
+        const rect = container.getBoundingClientRect();
+        ctx.setTransform(1,0,0,1,0,0);
+        ctx.scale(dpr, dpr);
+        ctx.fillStyle = '#000';
+        ctx.fillRect(0, 0, rect.width, rect.height);
+        ctx.drawImage(img, 0, 0, rect.width, rect.height);
+      };
+      img.src = data;
+    }
+    btnUndo.addEventListener('click', undo);
+
+    // clear
+    btnClear.addEventListener('click', () => {
+      pushHistory();
+      const rect = container.getBoundingClientRect();
+      ctx.setTransform(1,0,0,1,0,0);
+      ctx.scale(dpr, dpr);
+      ctx.fillStyle = '#000';
+      ctx.fillRect(0, 0, rect.width, rect.height);
+    });
+
+    // save (composite overlay if glassy on)
+    btnSave.addEventListener('click', () => {
+      const rect = container.getBoundingClientRect();
+      const tmp = document.createElement('canvas');
+      tmp.width = Math.round(rect.width * dpr);
+      tmp.height = Math.round(rect.height * dpr);
+      const tctx = tmp.getContext('2d');
+      tctx.fillStyle = '#000';
+      tctx.fillRect(0, 0, tmp.width, tmp.height);
+      const img = new Image();
+      img.onload = () => {
+        tctx.drawImage(img, 0, 0, tmp.width / dpr, tmp.height / dpr);
+        if (glassy) {
+          tctx.save();
+          tctx.globalAlpha = 0.75;
+          const g = tctx.createLinearGradient(0, 0, tmp.width, tmp.height);
+          g.addColorStop(0, 'rgba(255,255,255,0.03)');
+          g.addColorStop(1, 'rgba(255,255,255,0.01)');
+          tctx.fillStyle = g;
+          tctx.fillRect(0, 0, tmp.width / dpr, tmp.height / dpr);
+          tctx.restore();
+        }
+        const url = tmp.toDataURL('image/png');
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'purple-canvas.png';
+        a.click();
+        a.remove();
+      };
+      img.src = canvas.toDataURL();
+    });
+
+    // pointer helpers
+    function getPointerPos(evt) {
+      const rect = canvas.getBoundingClientRect();
+      return { x: (evt.clientX - rect.left), y: (evt.clientY - rect.top) };
+    }
+
+    function beginStroke(pt) {
+      drawing = true;
+      lastPos = pt;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.lineWidth = brushSize;
+      ctx.globalCompositeOperation = 'source-over';
+      pushHistory(); // save before stroke
+    }
+
+    function endStroke() {
+      drawing = false;
+      lastPos = null;
+      ctx.shadowBlur = 0;
+    }
+
+    function drawSegment(p1, p2) {
+      const grad = ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
+      grad.addColorStop(0, color);
+      grad.addColorStop(0.5, lighten(color, 0.12));
+      grad.addColorStop(1, color);
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = brushSize;
+      if (neon) {
+        ctx.shadowColor = color;
+        ctx.shadowBlur = Math.min(brushSize * 2.6, 80);
+      } else { ctx.shadowBlur = 0; }
+      ctx.beginPath();
+      ctx.moveTo(p1.x, p1.y);
+      ctx.lineTo(p2.x, p2.y);
+      ctx.stroke();
+
+      if (glitter) {
+        const sparkleCount = Math.max(1, Math.round(brushSize / 8));
+        for (let i = 0; i < sparkleCount; i++) {
+          const t = Math.random();
+          const x = p1.x + (p2.x - p1.x) * t + (Math.random() - 0.5) * brushSize * 0.8;
+          const y = p1.y + (p2.y - p1.y) * t + (Math.random() - 0.5) * brushSize * 0.8;
+          drawSparkle(x, y);
+        }
+      }
+    }
+
+    function drawSparkle(x, y) {
+      ctx.save();
+      ctx.globalCompositeOperation = 'lighter';
+      const r = Math.max(0.8, Math.random()) * (Math.min(brushSize, 28) * 0.35);
+      const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+      g.addColorStop(0, 'rgba(255,255,255,0.95)');
+      g.addColorStop(0.3, color);
+      g.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    // pointer events
+    canvas.addEventListener('pointerdown', (e) => {
+      if (e.button !== 0 && e.pointerType === 'mouse') return;
+      canvas.setPointerCapture(e.pointerId);
+      const p = getPointerPos(e);
+      beginStroke(p);
+    });
+
+    canvas.addEventListener('pointermove', (e) => {
+      const p = getPointerPos(e);
+      coordX.textContent = `x: ${Math.round(p.x)}px`;
+      coordY.textContent = `y: ${Math.round(p.y)}px`;
+      if (!drawing) return;
+      if (!lastPos) { lastPos = p; return; }
+      const mid = { x: (lastPos.x + p.x) / 2, y: (lastPos.y + p.y) / 2 };
+      drawSegment(lastPos, mid);
+      lastPos = p;
+    });
+
+    function stopFromEvent(e) {
+      if (drawing) { try { canvas.releasePointerCapture(e.pointerId); } catch(_){} endStroke(); }
+    }
+    canvas.addEventListener('pointerup', stopFromEvent);
+    canvas.addEventListener('pointercancel', stopFromEvent);
+    window.addEventListener('pointerup', () => { if (drawing) endStroke(); });
+
+    // keyboard shortcuts
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z') { e.preventDefault(); undo(); }
+      else if (!e.ctrlKey && !e.metaKey) {
+        if (e.key.toLowerCase() === 'c') { e.preventDefault(); btnClear.click(); }
+        if (e.key.toLowerCase() === 's') { e.preventDefault(); btnSave.click(); }
+      }
+    });
+
+    // initial fill black and set smoothing state
+    (function initialFill() {
+      const rect = container.getBoundingClientRect();
+      ctx.setTransform(1,0,0,1,0,0);
+      ctx.scale(dpr, dpr);
+      ctx.fillStyle = '#000';
+      ctx.fillRect(0, 0, rect.width, rect.height);
+    })();
+
+    // Accessibility: allow toggles via keyboard
+    [btnNeon, btnGlitter, btnGlassy].forEach(b => {
+      b.tabIndex = 0;
+      b.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); b.click(); } });
+    });
+
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Me: A Love Letter to Purple</title>
+<link rel="icon" href="assets/logo.png" />
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#7311d4",
+        "lavender": "#E6E6FA",
+        "indigo-twilight": "#4B0082",
+        "background-light": "#f7f6f8",
+        "background-dark": "#0a0112", 
+      },
+      fontFamily: {
+        "display": ["Space Grotesk", "sans-serif"],
+        "body": ["Space Grotesk", "sans-serif"],
+        "handwriting": ["Dancing Script", "cursive"],
+      },
+      borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+      animation: {
+        'float': 'float 6s ease-in-out infinite',
+        'float-delayed': 'float 8s ease-in-out infinite',
+        'float-slow': 'float 10s ease-in-out infinite',
+        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-20px)' },
+        }
+      }
+    },
+  },
+}
+</script>
+<style>
+.text-glow { text-shadow: 0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(115, 17, 212, 0.3); }
+.text-glow-soft { text-shadow: 0 0 10px rgba(230, 230, 250, 0.4); }
+.glass-card {
+  background: rgba(19, 11, 27, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+.glass-bubble {
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05), 0 0 15px rgba(115, 17, 212, 0.2);
+}
+.halo-glow { box-shadow: 0 0 60px 20px rgba(115, 17, 212, 0.3); }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0a0112; }
+::-webkit-scrollbar-thumb { background: #332545; border-radius: 4px; }
+
+/* Petals animation */
+.falling-petal {
+  position: fixed;
+  font-size: 1.5rem;
+  pointer-events: none;
+  z-index: 5;
+  animation: drift linear infinite;
+}
+@keyframes drift {
+  0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-white font-display overflow-x-hidden selection:bg-primary selection:text-white">
+
+<!-- Floating Petals Container -->
+<div id="petal-container"></div>
+
+<!-- Rest of your page content -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-indigo-twilight/20 rounded-full blur-[150px] mix-blend-screen animate-pulse-slow"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[900px] h-[900px] bg-primary/10 rounded-full blur-[160px] mix-blend-screen animate-pulse-slow" style="animation-delay: 2s;"></div>
+<div class="absolute top-[30%] left-[60%] w-[600px] h-[600px] bg-lavender/5 rounded-full blur-[120px] animate-pulse-slow" style="animation-delay: 4s;"></div>
+</div>
+
+<div class="relative z-10 flex flex-col min-h-screen">
+<!-- Navbar (copied from yours) -->
+<div class="w-full flex justify-center px-4 pt-6 fixed top-0 z-50">
+<header class="flex items-center justify-between w-full max-w-[960px] h-16 px-6 rounded-full border border-white/10 bg-[#130b1b]/60 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+<div class="flex items-center gap-3">
+<div class="size-8 flex items-center justify-center">
+  <img src="assets/logo.png" alt="Logo" class="h-8 w-8" />
+</div>
+<span class="text-white text-lg font-bold tracking-tight">Amethystiee</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors" href="index.html">Home</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors" href="discovery.html">Discovery</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors" href="shade.html">Spectral</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors" href="origin.html">Origins</a>
+<a class="text-sm font-medium text-white/70 hover:text-white transition-colors" href="me.html">Me</a>
+</nav>
+<button onclick="window.location.href='shh.html'" class="hidden md:flex items-center justify-center h-9 px-5 rounded-full bg-primary hover:bg-primary/90 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(115,17,212,0.4)] hover:shadow-[0_0_25px_rgba(115,17,212,0.6)] focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#130b1b]">
+⋆˚꩜｡
+</button>
+<button class="md:hidden text-white"><span class="material-symbols-outlined">menu</span></button>
+</header>
+</div>
+
+<main class="flex-grow flex flex-col items-center pt-32 pb-20 px-4 md:px-8">
+<div class="w-full max-w-[1000px] flex flex-col items-center gap-16 md:gap-24">
+<div class="flex flex-col items-center text-center gap-6 w-full animate-float">
+<h1 class="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-white text-glow leading-[1.1]">
+                        Hi I’m <br class="md:hidden"/> <span class="font-normal italic font-handwriting text-primary/90">Sanduni Basnayaka</span>.
+                    </h1>
+<p class="text-lavender/70 text-lg md:text-xl font-light tracking-wide max-w-lg">
+                         I am the creator behind Amethystiee...<br> a little world where purple rules. 
+                    </p>
+</div>
+<div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 flex items-center justify-center">
+<div class="absolute inset-0 rounded-full bg-gradient-to-tr from-primary via-indigo-twilight to-transparent opacity-40 blur-[40px] animate-pulse-slow halo-glow"></div>
+<div class="absolute inset-4 rounded-full border border-green-/20 animate-[spin_20s_linear_infinite]"></div>
+<div class="absolute inset-8 rounded-full border border-white/10 animate-[spin_15s_linear_infinite_reverse]"></div>
+<div class="relative w-full h-full rounded-full overflow-hidden border-0 border-white/20 glass-card p-2">
+<div class="w-full h-full rounded-full overflow-hidden bg-background-dark/0 relative">
+<img
+  src="assets/me.jpeg"
+  alt="Sanduni Basnayaka"
+  class="w-full h-full object-cover opacity-90 hover:scale-110 transition-transform duration-700 "
+/>
+<div class="absolute inset-0 bg-primary/20 mix-blend-color"></div>
+</div>
+</div>
+</div>
+<div class="w-full max-w-3xl glass-card rounded-[2rem] p-8 md:p-12 relative overflow-hidden group hover:border-primary/30 transition-colors duration-500">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+<div class="relative z-10 flex flex-col gap-6">
+<span class="material-symbols-outlined text-4xl text-primary/50">format_quote</span>
+<p class="text-xl md:text-2xl lg:text-3xl font-light leading-[1.8] text-white/90 font-display">
+                           <span class="text-primary font-normal">Purple</span> is not just a color it’s a feeling of calm, mystery, and magic. 💜
+</div>
+<div class="absolute bottom-[-20%] right-[-10%] w-64 h-64 bg-primary/10 rounded-full blur-[60px]"></div>
+</div>
+<div class="w-full max-w-[900px] relative h-[300px] md:h-[200px] flex justify-center items-center">
+<div class="absolute left-[5%] md:left-[10%] top-[10%] glass-bubble rounded-full w-32 h-32 md:w-40 md:h-40 flex items-center justify-center animate-float" style="animation-delay: 0s;">
+<span class="text-white/80 text-sm font-medium tracking-widest uppercase text-center px-2">🔮<br> Explore</span>
+</div>
+<div class="absolute right-[5%] md:right-[15%] top-[20%] glass-bubble rounded-full w-28 h-28 md:w-36 md:h-36 flex items-center justify-center animate-float-delayed" style="animation-delay: 1.5s;">
+<span class="text-white/80 text-sm font-medium tracking-widest uppercase text-center px-2">🪻<br> Dream</span>
+</div>
+<div class="absolute left-[35%] md:left-[45%] bottom-[5%] glass-bubble rounded-full w-36 h-36 md:w-44 md:h-44 flex items-center justify-center animate-float-slow" style="animation-delay: 3s;">
+<span class="text-white/80 text-sm font-bold tracking-widest uppercase text-center px-5">💜 <br> Glow</span>
+</div>
+</div>
+</div>
+</main>
+<footer class="w-full flex justify-center py-12 z-10 border-t border-white/5 bg-[#0a0112]/80 backdrop-blur-sm mt-auto">
+<div class="layout-content-container flex flex-col items-center gap-6 max-w-[960px] w-full px-8">
+<div class="font-handwriting text-4xl text-white/80 rotate-[-5deg] transform hover:rotate-0 transition-transform duration-300 cursor-default">
+                    Sanduni
+                </div>
+<p class="text-white/30 text-xs md:text-sm font-light tracking-wider text-center">
+                   © 2026 Amethystiee By Sanduni Basnayaka - Built with obsession for purple.
+                </p>
+</div>
+</footer>
+</main>
+
+<script>
+// Generate drifting petals
+const petalContainer = document.getElementById('petal-container');
+const petalEmojis = ['💜','🪻'];
+const NUM_PETALS = 25;
+
+for(let i=0;i<NUM_PETALS;i++){
+  const petal = document.createElement('div');
+  petal.className = 'falling-petal';
+  petal.textContent = petalEmojis[Math.floor(Math.random()*petalEmojis.length)];
+  // Random initial position
+  petal.style.left = Math.random()*100 + 'vw';
+  petal.style.fontSize = 16 + Math.random()*24 + 'px';
+  petal.style.animationDuration = 5 + Math.random()*5 + 's';
+  petal.style.animationDelay = Math.random()*5 + 's';
+  petalContainer.appendChild(petal);
+}
+</script>
+
+</body>
+</html>
